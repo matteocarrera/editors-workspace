@@ -1,2 +1,5 @@
-# editors-workspace
+# Editor's Workspace
+
 Enterprise Java Course - s2020
+
+Web-приложение по составлению и отправке отчета о проделанной работе редактора для дальнейшей проверки
