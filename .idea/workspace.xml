@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9738692-36cb-4cec-b98e-aa3aff7ae078" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Report.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/ReportRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/RoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Report.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,17 +71,29 @@
       <option name="presentableId" value="Default" />
       <updated>1583765612809</updated>
     </task>
+    <task id="LOCAL-00001" summary="Implemented DataBase connection&#10;Added User, Role and Report entities">
+      <created>1583776978586</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583776978586</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implemented DataBase connection&#10;Added User, Role and Report entities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented DataBase connection&#10;Added User, Role and Report entities" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1583776751970">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583776751970" />
-    <state x="602" y="114" key="CommitChangelistDialog2" timestamp="1583776960156">
+    <state x="602" y="114" key="CommitChangelistDialog2" timestamp="1583776977683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="602" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583776960156" />
+    <state x="602" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1583776977683" />
     <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1583766492248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -122,6 +126,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583766492248" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1583776981423">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583776981423" />
     <state x="649" y="311" key="git4idea.merge.GitPullDialog" timestamp="1583767365397">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

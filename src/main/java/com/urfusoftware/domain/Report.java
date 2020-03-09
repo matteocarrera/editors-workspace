@@ -12,7 +12,7 @@ public class Report {
     private Long id;
 
     private String title;
-    private Date date;
+    private Date currentDate;
     private int timeSpent;
     private String reportLink;
     private String resultLink;
@@ -40,11 +40,11 @@ public class Report {
     }
 
     public Date getDate() {
-        return date;
+        return currentDate;
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        this.currentDate = date;
     }
 
     public int getTimeSpent() {
