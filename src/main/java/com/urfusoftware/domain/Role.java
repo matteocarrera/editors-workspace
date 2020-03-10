@@ -13,6 +13,13 @@ public class Role {
 
     private String name;
 
+    public Role() {
+    }
+
+    public Role(String name) {
+        this.name = name;
+    }
+
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
     private Set<User> users;
 
