@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class MainController {
     @Autowired
@@ -34,11 +36,15 @@ public class MainController {
     }
 
     @PostMapping("/new-role")
-    public String addRole(@RequestParam String role) {
-        Role newRole = new Role(role);
+    public String addRole(@RequestParam String roleName) {
+        List<Role> roles = roleRepository.findByName(roleName);
+        if (roles.size() < 1) {
+            Role newRole = new Role(roleName);
 
-        roleRepository.save(newRole);
+            roleRepository.save(newRole);
 
-        return "redirect:/";
+            return "redirect:/";
+        }
+        return "new-role";
     }
 }
