@@ -1,0 +1,22 @@
+<html>
+<h1>Список пользователей</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Имя пользователя</th>
+        <th>Текущая роль</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#users}}
+        <tr>
+            <td>{{username}}</td>
+            <td>{{role.name}}</td>
+            <td><a href="/user/{{id}}">edit</a></td>
+        </tr>
+    {{/users}}
+    </tbody>
+</table>
+
+</html>
