@@ -2,6 +2,10 @@
 
 <body>
 <div>
+    <form action="/logout" method="post">
+        <input type="submit" value="Выход"/>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    </form>
     {{some}}
 </div>
 </body>

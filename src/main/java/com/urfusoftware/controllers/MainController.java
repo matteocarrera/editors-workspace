@@ -1,4 +1,4 @@
-package com.urfusoftware;
+package com.urfusoftware.controllers;
 
 import com.urfusoftware.domain.Role;
 import com.urfusoftware.repositories.RoleRepository;
@@ -16,15 +16,13 @@ public class MainController {
     @Autowired
     private RoleRepository roleRepository;
 
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name,
-                           Model model)
+    @GetMapping("/")
+    public String greeting()
     {
-        model.addAttribute("name", name);
         return "greeting";
     }
 
-    @GetMapping()
+    @GetMapping("/main")
     public String main(Model model) {
         model.addAttribute("some", "Hello again, this is our main page!");
         return "main";

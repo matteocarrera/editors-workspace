@@ -15,6 +15,7 @@ public class User {
     private String surname;
     private String username;
     private String password;
+    private boolean active = true;
 
     @ManyToOne
     @JoinColumn(name = "roles_id", nullable = false)
@@ -61,6 +62,15 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    // Всегда true
+    public void setActive() {
+        this.active = true;
     }
 
     public Role getRole() {
