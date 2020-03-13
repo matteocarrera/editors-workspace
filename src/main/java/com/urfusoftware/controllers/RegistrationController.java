@@ -30,8 +30,8 @@ public class RegistrationController {
             return "registration";
         }
 
-        user.setActive();
-        user.setRole(roleRepository.findByName("Неавторизованный").get(0));
+        user.setActive(true);
+        user.setRole(roleRepository.findByName("Неавторизованный"));
         userRepository.save(user);
 
         return "redirect:/login";

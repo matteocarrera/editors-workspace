@@ -4,8 +4,12 @@
 <div>
     <form method="post">
         <input type="text" name="roleName" placeholder="Введите название новой роли"/>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         <button type="submit">Добавить роль</button>
     </form>
+    {{#message}}
+        {{message}}
+    {{/message}}
 </div>
 </body>
 

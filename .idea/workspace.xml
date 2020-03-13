@@ -2,24 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9738692-36cb-4cec-b98e-aa3aff7ae078" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/config/MvcConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/config/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/RegistrationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login.mustache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/registration.mustache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/RoleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/RegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/RoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/greeting.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/greeting.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/urfusoftware/MainController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/greeting.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/greeting.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/new-role.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/new-role.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registration.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registration.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,12 +104,20 @@
       <option name="project" value="LOCAL" />
       <updated>1583779287663</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Implemented Spring Security">
+      <created>1584079016975</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1584079016975</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Implemented DataBase connection&#10;Added User, Role and Report entities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented DataBase connection&#10;Added User, Role and Report entities" />
+    <MESSAGE value="Implemented Spring Security" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Spring Security" />
   </component>
   <component name="WindowStateProjectService">
     <state x="423" y="115" key="#Application" timestamp="1583921826296">
@@ -137,56 +136,56 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1584078588922" />
-    <state x="602" y="114" key="CommitChangelistDialog2" timestamp="1584079002171">
+    <state x="602" y="114" key="CommitChangelistDialog2" timestamp="1584079015836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="452" y="87" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1583922173396" />
-    <state x="602" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584079002171" />
-    <state width="1671" height="252" key="GridCell.Tab.0.bottom" timestamp="1584079002190">
+    <state x="602" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584079015836" />
+    <state width="1520" height="258" key="GridCell.Tab.0.bottom" timestamp="1584102650778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583921877497" />
-    <state width="1671" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584079002190" />
-    <state width="1671" height="252" key="GridCell.Tab.0.center" timestamp="1584079002190">
+    <state width="1520" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584102650778" />
+    <state width="1520" height="258" key="GridCell.Tab.0.center" timestamp="1584102650778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583921877494" />
-    <state width="1671" height="252" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584079002190" />
-    <state width="1671" height="252" key="GridCell.Tab.0.left" timestamp="1584079002190">
+    <state width="1520" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584102650778" />
+    <state width="1520" height="258" key="GridCell.Tab.0.left" timestamp="1584102650778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583921877493" />
-    <state width="1671" height="252" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584079002190" />
-    <state width="1671" height="252" key="GridCell.Tab.0.right" timestamp="1584079002190">
+    <state width="1520" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584102650778" />
+    <state width="1520" height="258" key="GridCell.Tab.0.right" timestamp="1584102650778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583921877495" />
-    <state width="1671" height="252" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584079002190" />
-    <state width="1671" height="252" key="GridCell.Tab.1.bottom" timestamp="1584079002190">
+    <state width="1520" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584102650778" />
+    <state width="1671" height="252" key="GridCell.Tab.1.bottom" timestamp="1584079179041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583921877078" />
-    <state width="1671" height="252" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584079002190" />
-    <state width="1671" height="252" key="GridCell.Tab.1.center" timestamp="1584079002190">
+    <state width="1671" height="252" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584079179041" />
+    <state width="1671" height="252" key="GridCell.Tab.1.center" timestamp="1584079179041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1583921877076" />
-    <state width="1671" height="252" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584079002190" />
-    <state width="1671" height="252" key="GridCell.Tab.1.left" timestamp="1584079002190">
+    <state width="1671" height="252" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584079179041" />
+    <state width="1671" height="252" key="GridCell.Tab.1.left" timestamp="1584079179041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1583921877074" />
-    <state width="1671" height="252" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584079002190" />
-    <state width="1671" height="252" key="GridCell.Tab.1.right" timestamp="1584079002190">
+    <state width="1671" height="252" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584079179041" />
+    <state width="1671" height="252" key="GridCell.Tab.1.right" timestamp="1584079179041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1583921877077" />
-    <state width="1671" height="252" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584079002190" />
-    <state x="414" y="218" key="Vcs.Push.Dialog.v2" timestamp="1583922178457">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1671" height="252" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584079179041" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1584079021235">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="218" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1583922178457" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1583779313131" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584079021235" />
     <state x="521" y="146" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583921573713">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

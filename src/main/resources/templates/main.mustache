@@ -2,11 +2,18 @@
 
 <body>
 <div>
-    <form action="/logout" method="post">
-        <input type="submit" value="Выход"/>
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-    </form>
-    {{some}}
+    <div style="display: inline-block;">
+        <a href="/new-role">Добавить роль</a>
+    </div>
+    <div style="display: inline-block;">
+        <form action="/logout" method="post">
+            <input type="submit" value="Выход"/>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        </form>
+    </div>
+    <div>
+        {{some}}
+    </div>
 </div>
 </body>
 
