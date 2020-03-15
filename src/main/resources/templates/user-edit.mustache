@@ -3,16 +3,20 @@
 <body>
 <h1>Редактирование пользователя</h1>
 <div>
-    <form action="/user" method="post">
-        <input type="text" name="username" value="{{username}}"/>
-        {{#role}}
-        <div>
-           <label><input name="{{role}}" type="checkbox">{{role}}</label>
-        </div>
-        {{/role}}
-        <input type="hidden" name="userId" value="{{id}}">
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-        <button type="submit">Сохранить</button>
+    <form action="/user-edit/{{user.id}}" method="post">
+            Имя: <input type="text" name="name" value="{{user.name}}"/><br>
+            Фамилия: <input type="text" name="surname" value="{{user.surname}}"/><br>
+            Логин: <input type="text" name="username" value="{{user.username}}"/><br>
+            Пароль: <input type="text" name="password" value="{{user.password}}"/><br>
+            Роль:
+            <select name="role">
+                {{#role}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/role}}
+            </select>
+            <input type="hidden" name="userId" value="{{user.id}}">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/><br>
+            <button type="submit">Сохранить</button>
     </form>
 </div>
 </body>
