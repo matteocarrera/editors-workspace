@@ -2,15 +2,47 @@
 
 <body>
 <a href="/main">Главная страница</a>
+<h1>Список ролей</h1>
 <div>
-    <form method="post">
+    <form method="POST">
         <input type="text" name="roleName" placeholder="Введите название новой роли"/>
         <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         <button type="submit">Добавить роль</button>
     </form>
-    {{#message}}
-        {{message}}
-    {{/message}}
+    {{#error}}
+        <strong style="color: red">{{error}}</strong>
+    {{/error}}
+    {{#success}}
+        <strong style="color: green">{{success}}</strong>
+    {{/success}}
+    <table border="1" cellpadding="5" style="border-collapse: collapse;">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название роли</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#roles}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{name}}</td>
+                <td>
+                    {{^isSystem}}
+                        <a href="/roles/{{id}}/delete">Удалить</a>
+                    {{/isSystem}}
+                </td>
+            </tr>
+        {{/roles}}
+        </tbody>
+    </table>
+    {{#deleteConfirmation}}
+        <form action="/roles/{{role.id}}/delete" method="POST">
+            Вы действительно хотите удалить роль "{{role.name}}"? <input type="submit" value="Да, удалить"/>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        </form>
+    {{/deleteConfirmation}}
 </div>
 </body>
 

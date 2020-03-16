@@ -14,12 +14,14 @@ public class Role implements GrantedAuthority {
     private Long id;
 
     private String name;
+    private boolean isSystem;
 
     public Role() {
     }
 
-    public Role(String name) {
+    public Role(String name, boolean isSystem) {
         this.name = name;
+        this.isSystem = isSystem;
     }
 
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
@@ -47,6 +49,14 @@ public class Role implements GrantedAuthority {
 
     public void setUsers(Set<User> users) {
         this.users = users;
+    }
+
+    public boolean isSystem() {
+        return isSystem;
+    }
+
+    public void setSystem(boolean system) {
+        isSystem = system;
     }
 
     @Override

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class UserController {
@@ -46,10 +47,10 @@ public class UserController {
             @RequestParam String password,
             @RequestParam("userId") User user,
             @RequestParam String role,
-            Model model)
+            RedirectAttributes attributes)
     {
         if (name.isEmpty() || surname.isEmpty() || username.isEmpty() || password.isEmpty()) {
-            model.addAttribute("message", "ОШИБКА! Поля не могут быть пустыми!");
+            attributes.addFlashAttribute("message", "ОШИБКА! Поля не могут быть пустыми!");
             return "redirect:/users/{user}";
         } else {
             user.setUsername(username);
