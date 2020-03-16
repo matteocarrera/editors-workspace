@@ -1,9 +1,10 @@
 <html>
 
 <body>
+<a href="/users">Назад</a>
 <h1>Редактирование пользователя</h1>
 <div>
-    <form action="/user-edit/{{user.id}}" method="post">
+    <form action="/users/{{user.id}}" method="post">
             Имя: <input type="text" name="name" value="{{user.name}}"/><br>
             Фамилия: <input type="text" name="surname" value="{{user.surname}}"/><br>
             Логин: <input type="text" name="username" value="{{user.username}}"/><br>
@@ -18,9 +19,15 @@
             <input type="hidden" name="_csrf" value="{{_csrf.token}}"/><br>
             <button type="submit">Сохранить</button>
     </form>
-    {{#message}}
-        {{message}}
-    {{/message}}
+    {{#allowDelete}}
+        <a href="/users/{{user.id}}/delete">Удалить</a>
+    {{/allowDelete}}
+    {{#deleteConfirmation}}
+        <form action="/users/{{user.id}}/delete" method="POST">
+            Вы действительно хотите удалить пользователя? <input type="submit" value="Да, удалить" />
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        </form>
+    {{/deleteConfirmation}}
 </div>
 </body>
 
