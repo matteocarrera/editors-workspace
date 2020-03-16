@@ -9,6 +9,9 @@
         <a href="/users">Список пользователей</a>
     </div>
     <div style="display: inline-block;">
+        <a href="/reports">Добавить отчет</a>
+    </div>
+    <div style="display: inline-block;">
         <form action="/logout" method="post">
             <input type="submit" value="Выход"/>
             <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>

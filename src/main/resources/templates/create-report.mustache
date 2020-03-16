@@ -1,0 +1,20 @@
+<html>
+
+<body>
+<a href="/main">Назад</a>
+<h1>Создание отчета</h1>
+<div>
+    <form method="post">
+        Название: <input type="text" name="title"/><br>
+        Затраченное время: <input type="number" name="timeSpent"/><br>
+        Дата выполнения: <input type="date" name="reportDate"/><br>
+        Файл отчета: <input type="file" name="reportLink"><br>
+        Итоговый файл: <input type="file" name="resultLink"><br>
+        Комментарии: <textarea name="comments" rows="5" cols="40"></textarea><br>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <button type="submit">Добавить отчет</button>
+    </form>
+</div>
+</body>
+
+</html>
