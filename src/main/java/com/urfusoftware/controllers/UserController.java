@@ -38,16 +38,7 @@ public class UserController {
             model.addAttribute("allowDelete", true);
         }
         model.addAttribute("user", user);
-
-        List<SelectedRole> selectedRoleList = new ArrayList<>();
-        for (Role role : roleRepository.findAll()) {
-            if (!role.getName().equals(user.getRole().getName()))
-                selectedRoleList.add(new SelectedRole(role.getId(), role.getName(), false));
-            else
-                selectedRoleList.add(new SelectedRole(role.getId(), role.getName(), true));
-        }
-
-        model.addAttribute("role", selectedRoleList);
+        model.addAttribute("role", setSelectedRoles(user));
         return "user-edit";
     }
 
@@ -79,7 +70,7 @@ public class UserController {
     public String showDeleteUser(Model model, @PathVariable User user)
     {
         model.addAttribute("user", user);
-        model.addAttribute("role", roleRepository.findAll());
+        model.addAttribute("role", setSelectedRoles(user));
         model.addAttribute("deleteConfirmation", true);
         return "user-edit";
     }
@@ -89,5 +80,16 @@ public class UserController {
     {
         userRepository.delete(user);
         return "redirect:/users";
+    }
+
+    private List<SelectedRole> setSelectedRoles(User user) {
+        List<SelectedRole> selectedRoleList = new ArrayList<>();
+        for (Role role : roleRepository.findAll()) {
+            if (!role.getName().equals(user.getRole().getName()))
+                selectedRoleList.add(new SelectedRole(role.getId(), role.getName(), false));
+            else
+                selectedRoleList.add(new SelectedRole(role.getId(), role.getName(), true));
+        }
+        return selectedRoleList;
     }
 }
