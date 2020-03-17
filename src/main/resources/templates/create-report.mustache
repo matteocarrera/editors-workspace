@@ -10,7 +10,7 @@
         Дата выполнения: <input type="date" name="reportDate"/><br>
         Файл отчета: <input type="file" name="reportLink"><br>
         Итоговый файл: <input type="file" name="resultLink"><br>
-        Комментарии: <textarea name="comments" rows="5" cols="40"></textarea><br>
+        Комментарии: <br><textarea name="comments" rows="5" cols="40" style="resize: none;"></textarea><br>
         <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         <button type="submit">Добавить отчет</button>
     </form>
