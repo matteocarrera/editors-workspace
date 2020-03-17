@@ -1,10 +1,10 @@
 package com.urfusoftware.controllers;
 
+import com.urfusoftware.SelectedRole;
+import com.urfusoftware.domain.Role;
 import com.urfusoftware.domain.User;
 import com.urfusoftware.repositories.RoleRepository;
 import com.urfusoftware.repositories.UserRepository;
-import com.urfusoftware.service.UserService;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -35,7 +38,16 @@ public class UserController {
             model.addAttribute("allowDelete", true);
         }
         model.addAttribute("user", user);
-        model.addAttribute("role", roleRepository.findAll());
+
+        List<SelectedRole> selectedRoleList = new ArrayList<>();
+        for (Role role : roleRepository.findAll()) {
+            if (!role.getName().equals(user.getRole().getName()))
+                selectedRoleList.add(new SelectedRole(role.getId(), role.getName(), false));
+            else
+                selectedRoleList.add(new SelectedRole(role.getId(), role.getName(), true));
+        }
+
+        model.addAttribute("role", selectedRoleList);
         return "user-edit";
     }
 
@@ -57,7 +69,7 @@ public class UserController {
             user.setName(name);
             user.setSurname(surname);
             user.setPassword(password);
-            user.setRole(roleRepository.findAll().get(Integer.parseInt(role) - 1));
+            user.setRole(roleRepository.findById((long)(Integer.parseInt(role))).orElse(roleRepository.findAll().get(0)));
             userRepository.save(user);
         }
         return "redirect:/users";

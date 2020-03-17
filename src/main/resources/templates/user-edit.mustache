@@ -12,7 +12,7 @@
             Роль:
             <select name="role">
                 {{#role}}
-                    <option value="{{id}}">{{name}}</option>
+                    <option value="{{id}}" {{selected}}>{{name}}</option>
                 {{/role}}
             </select>
             <input type="hidden" name="userId" value="{{user.id}}">
