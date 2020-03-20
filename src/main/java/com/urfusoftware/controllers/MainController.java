@@ -18,10 +18,6 @@ public class MainController {
         return "main";
     }
 
-    @GetMapping("/reports")
-    public String reports()
-    {
-        return "create-report";
-    }
+
 
 }

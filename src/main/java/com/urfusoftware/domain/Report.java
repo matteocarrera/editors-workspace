@@ -23,6 +23,9 @@ public class Report {
     @JoinColumn(name = "users_id", nullable = false)
     private User user;
 
+    public Report() {
+    }
+
     public Long getId() {
         return id;
     }
