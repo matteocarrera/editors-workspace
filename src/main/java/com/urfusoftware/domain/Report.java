@@ -19,6 +19,7 @@ public class Report {
     private String comments;
     private Boolean accepted;
 
+
     @ManyToOne
     @JoinColumn(name = "users_id", nullable = false)
     private User user;
