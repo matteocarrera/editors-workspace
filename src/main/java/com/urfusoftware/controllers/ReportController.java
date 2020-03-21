@@ -22,10 +22,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 public class ReportController {
@@ -63,8 +60,7 @@ public class ReportController {
             report.setResultLink(setLink(resultFile));
             report.setAccepted(false);
             report.setUser(user);
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            Date date = formatter.parse(reportDate);
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(reportDate);
             report.setDate(date);
             report.setTimeSpent(Integer.parseInt(timeSpent));
             report.setComments(comments);
@@ -78,7 +74,7 @@ public class ReportController {
         model.addAttribute("user", currentUser);
         List<Report> userReports = new ArrayList<>();
 
-        for (Report report : reportRepository.findAll()) {
+        for (Report report : reportRepository.findAllByOrderByIdAsc()) {
             if (report.getUser().getId().equals(currentUser.getId())) {
                 userReports.add(report);
             }
