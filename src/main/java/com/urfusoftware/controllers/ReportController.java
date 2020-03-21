@@ -32,10 +32,11 @@ public class ReportController {
     @Value("${upload.path}")
     private String uploadPath;
 
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
     @GetMapping("/reports/add")
     public String reports(Model model) {
-        model.addAttribute("reports", reportRepository.findAll());
-
+        model.addAttribute("tomorrow", dateFormat.format(Calendar.getInstance().getTime()));
         return "create-report";
     }
 
@@ -60,8 +61,7 @@ public class ReportController {
             report.setResultLink(setLink(resultFile));
             report.setAccepted(false);
             report.setUser(user);
-            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(reportDate);
-            report.setDate(date);
+            report.setDate(dateFormat.parse(reportDate));
             report.setTimeSpent(Integer.parseInt(timeSpent));
             report.setComments(comments);
             reportRepository.save(report);
@@ -76,6 +76,11 @@ public class ReportController {
 
         for (Report report : reportRepository.findAllByOrderByIdAsc()) {
             if (report.getUser().getId().equals(currentUser.getId())) {
+                String reportDate = report.getDate().toString().substring(0, 10);
+                String dateInRusFormat = reportDate.substring(8, 10) +
+                        "." + reportDate.substring(5, 7) +
+                        "." + reportDate.substring(0, 4);
+                report.setStringDate(dateInRusFormat);
                 userReports.add(report);
             }
         }
@@ -83,8 +88,7 @@ public class ReportController {
         if (currentUser.getRole().getName().equals("Администратор") ||
                 currentUser.getRole().getName().equals("Менеджер")) {
             model.addAttribute("checkForPermission", true);
-        }
-        else {
+        } else {
             model.addAttribute("checkForPermission", false);
         }
         model.addAttribute("reports", userReports);
@@ -95,21 +99,14 @@ public class ReportController {
     @GetMapping("/reports/{fileName}")
     public void getFile( HttpServletResponse response,
                          @PathVariable("fileName") String fileName,
-                         @RequestHeader String referer)
-    {
+                         @RequestHeader String referer) throws IOException {
         if(referer != null && !referer.isEmpty()) { }
         Path filePath = Paths.get(uploadPath, fileName);
         if (Files.exists(filePath))
         {
             response.addHeader("Content-Disposition", "attachment; filename=" + fileName.substring(37));
-            try
-            {
-                Files.copy(filePath, response.getOutputStream());
-                response.getOutputStream().flush();
-            }
-            catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            Files.copy(filePath, response.getOutputStream());
+            response.getOutputStream().flush();
         }
     }
 

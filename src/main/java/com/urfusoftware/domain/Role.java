@@ -16,6 +16,9 @@ public class Role implements GrantedAuthority {
     private String name;
     private boolean isSystem;
 
+    @Transient
+    private String selected;
+
     public Role() {
     }
 
@@ -57,6 +60,14 @@ public class Role implements GrantedAuthority {
 
     public void setSystem(boolean system) {
         isSystem = system;
+    }
+
+    public String getSelected() {
+        return selected;
+    }
+
+    public void setSelected(String selected) {
+        this.selected = selected;
     }
 
     @Override

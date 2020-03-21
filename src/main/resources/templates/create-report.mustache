@@ -7,7 +7,7 @@
     <form method="post" enctype="multipart/form-data">
         Название: <input type="text" name="title"/><br>
         Затраченное время: <input type="number" name="timeSpent"/><br>
-        Дата выполнения: <input type="date" name="reportDate"/><br>
+        Дата выполнения: <input type="date" name="reportDate" max="{{tomorrow}}"/><br>
         Файл отчета: <input type="file" name="reportLink"><br>
         Итоговый файл: <input type="file" name="resultLink"><br>
         Комментарии: <br><textarea name="comments" rows="5" cols="40" style="resize: none;"></textarea><br>

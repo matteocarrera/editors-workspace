@@ -1,6 +1,5 @@
 package com.urfusoftware.controllers;
 
-import com.urfusoftware.SelectedRole;
 import com.urfusoftware.domain.Role;
 import com.urfusoftware.domain.User;
 import com.urfusoftware.repositories.RoleRepository;
@@ -38,20 +37,15 @@ public class UserController {
             model.addAttribute("allowDelete", true);
         }
         model.addAttribute("user", user);
-        model.addAttribute("role", setSelectedRoles(user));
+        model.addAttribute("role", setCurrentRole(user));
         return "user-edit";
     }
 
     @PostMapping("/users/{user}")
-    public String userSave(
-            @RequestParam String username,
-            @RequestParam String surname,
-            @RequestParam String name,
-            @RequestParam String password,
-            @RequestParam("userId") User user,
-            @RequestParam String role,
-            RedirectAttributes attributes)
-    {
+    public String userSave(@RequestParam String username, @RequestParam String surname,
+                           @RequestParam String name, @RequestParam String password,
+                           @RequestParam("userId") User user, @RequestParam String role,
+                           RedirectAttributes attributes) {
         if (name.isEmpty() || surname.isEmpty() || username.isEmpty() || password.isEmpty()) {
             attributes.addFlashAttribute("message", "ОШИБКА! Поля не могут быть пустыми!");
             return "redirect:/users/{user}";
@@ -67,29 +61,28 @@ public class UserController {
     }
 
     @GetMapping(value = {"/users/{user}/delete"})
-    public String showDeleteUser(Model model, @PathVariable User user)
-    {
+    public String showDeleteUser(Model model, @PathVariable User user) {
         model.addAttribute("user", user);
-        model.addAttribute("role", setSelectedRoles(user));
+        model.addAttribute("role", setCurrentRole(user));
         model.addAttribute("deleteConfirmation", true);
         return "user-edit";
     }
 
     @PostMapping(value = {"/users/{user}/delete"})
-    public String deleteUser(@PathVariable User user)
-    {
+    public String deleteUser(@PathVariable User user) {
         userRepository.delete(user);
         return "redirect:/users";
     }
 
-    private List<SelectedRole> setSelectedRoles(User user) {
-        List<SelectedRole> selectedRoleList = new ArrayList<>();
+    private List<Role> setCurrentRole(User user) {
+        List<Role> roleList = new ArrayList<>();
         for (Role role : roleRepository.findAll()) {
             if (!role.getName().equals(user.getRole().getName()))
-                selectedRoleList.add(new SelectedRole(role.getId(), role.getName(), false));
+                role.setSelected("");
             else
-                selectedRoleList.add(new SelectedRole(role.getId(), role.getName(), true));
+                role.setSelected("selected");
+            roleList.add(role);
         }
-        return selectedRoleList;
+        return roleList;
     }
 }

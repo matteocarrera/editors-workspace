@@ -13,12 +13,15 @@ public class Report {
 
     private String title;
     private Date reportDate;
+
+    @Transient
+    private String stringDate;
+
     private int timeSpent;
     private String reportLink;
     private String resultLink;
     private String comments;
     private Boolean accepted;
-
 
     @ManyToOne
     @JoinColumn(name = "users_id", nullable = false)
@@ -49,6 +52,14 @@ public class Report {
 
     public void setDate(Date date) {
         this.reportDate = date;
+    }
+
+    public String getStringDate() {
+        return stringDate;
+    }
+
+    public void setStringDate(String stringDate) {
+        this.stringDate = stringDate;
     }
 
     public int getTimeSpent() {
