@@ -17,7 +17,4 @@ public class MainController {
         model.addAttribute("some", "Hello again, this is our main page!");
         return "main";
     }
-
-
-
 }
