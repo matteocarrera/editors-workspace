@@ -55,20 +55,23 @@ public class ReportController {
                     setLink(reportFile), setLink(resultFile), comments, false, user);
             reportRepository.save(report);
         }
-        return "redirect:/main";
+        return "redirect:/";
     }
 
     @GetMapping("/reports")
     private String loadReportPage(@AuthenticationPrincipal User currentUser, Model model) {
         model.addAttribute("users", userRepository.findAll());
-        if (!currentUser.getRole().getName().equals("Администратор") &&
-                !currentUser.getRole().getName().equals("Менеджер")) {
+
+        if (currentUser.getRole().canAcceptReport() && currentUser.getRole().canSeeList()) {
+            model.addAttribute("checkForWatchingPermission", true);
+            model.addAttribute("checkForAcceptingPermission", true);
+        } else if (!currentUser.getRole().canAcceptReport() && currentUser.getRole().canSeeList()) {
+            model.addAttribute("checkForWatchingPermission", true);
+        } else {
             model.addAttribute("user", currentUser);
             List<Report> userReports = getUserReports(currentUser);
             if (userReports.size() != 0) model.addAttribute("hasReports", true);
             model.addAttribute("reports", userReports);
-        } else {
-            model.addAttribute("checkForPermission", true);
         }
         return "reports";
     }

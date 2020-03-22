@@ -1,12 +1,14 @@
 <html>
 
 <body>
-<a href="/main">Главная страница</a>
+<a href="/">Главная страница</a>
 <h1>Список ролей</h1>
 <div>
     <form method="POST">
-        <input type="text" name="roleName" placeholder="Введите название новой роли"/>
-        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <input type="text" name="roleName" placeholder="Введите название новой роли"/><br>
+        <input type="checkbox" name="canAcceptReport"/> Добавить возможность принимать отчеты<br>
+        <input type="checkbox" name="canSeeList"/> Добавить возможность просматривать отчеты всех пользователей<br>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/><br>
         <button type="submit">Добавить роль</button>
     </form>
     {{#error}}
@@ -20,7 +22,8 @@
         <tr>
             <th>ID</th>
             <th>Название роли</th>
-            <th></th>
+            <th>Может просматривать<br>отчеты всех пользователей</th>
+            <th>Может принимать отчеты</th>
         </tr>
         </thead>
         <tbody>
@@ -28,11 +31,13 @@
             <tr>
                 <td>{{id}}</td>
                 <td>{{name}}</td>
+                {{#canSeeList}}<td style="text-align: center">✔</td>{{/canSeeList}}{{^canSeeList}}<td style="text-align: center">❌</td>{{/canSeeList}}
+                {{#canAcceptReport}}<td style="text-align: center">✔</td>{{/canAcceptReport}}{{^canAcceptReport}}<td style="text-align: center">❌</td>{{/canAcceptReport}}
+                {{^isSystem}}
                 <td>
-                    {{^isSystem}}
-                        <a href="/roles/{{id}}/delete">Удалить</a>
-                    {{/isSystem}}
+                    <a href="/roles/{{id}}/delete">Удалить</a>
                 </td>
+                {{/isSystem}}
             </tr>
         {{/roles}}
         </tbody>

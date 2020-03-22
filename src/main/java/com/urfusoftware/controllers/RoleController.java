@@ -23,14 +23,19 @@ public class RoleController {
     }
 
     @PostMapping("/roles")
-    public String addRole(@RequestParam String roleName, RedirectAttributes attributes) {
+    public String addRole(@RequestParam String roleName,
+                          @RequestParam(value = "canAcceptReport") String canAcceptReport,
+                          @RequestParam(value = "canSeeList") String canSeeList,
+                          RedirectAttributes attributes) {
         Role existingRole = roleRepository.findByName(roleName);
         if (existingRole != null) {
             attributes.addFlashAttribute("error", "ОШИБКА! Роль с таким названием уже существует!");
         } else if (roleName.isEmpty()) {
             attributes.addFlashAttribute("error", "ОШИБКА! Нельзя добавить роль без названия!");
         } else {
-            Role newRole = new Role(roleName, false);
+            boolean userCanAccept = canAcceptReport != null;
+            boolean userCanSeeList = canSeeList != null;
+            Role newRole = new Role(roleName, false, userCanAccept, userCanSeeList);
             roleRepository.save(newRole);
             attributes.addFlashAttribute("success", "Роль добавлена успешно!");
             return "redirect:/roles";

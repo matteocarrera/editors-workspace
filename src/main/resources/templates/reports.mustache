@@ -1,8 +1,8 @@
 <html>
 <body>
-<a href="/main">Главная страница</a>
+<a href="/">Главная страница</a>
 <h1>Таблица отчетов пользователя <i>{{#user}}{{name}} {{surname}}{{/user}}</i><i style="color: gray;">{{^user}}*пользователь не выбран*{{/user}}</i></h1>
-{{#checkForPermission}}
+{{#checkForWatchingPermission}}
 <form action="/reports" method="post">
     Пользователь:
     <select name="selectedUser">
@@ -13,7 +13,7 @@
     <input type="hidden" name="_csrf" value="{{_csrf.token}}"/><br>
     <button type="submit">Загрузить отчеты</button>
 </form>
-{{/checkForPermission}}
+{{/checkForWatchingPermission}}
 {{#hasReports}}
     <table border="1" cellpadding="5" style="border-collapse: collapse;">
         <thead>
@@ -25,9 +25,9 @@
             <th>Итоговый файл</th>
             <th>Комментарии</th>
             <th>Статус</th>
-            {{#checkForPermission}}
+            {{#checkForAcceptingPermission}}
                 <th>Принять отчет</th>
-            {{/checkForPermission}}
+            {{/checkForAcceptingPermission}}
         </tr>
         </thead>
         <tbody>
@@ -41,20 +41,20 @@
                 <td>{{comments}}</td>
                 {{#accepted}}
                     <td style="color: green; text-align: center;">✔</td>
-                    {{#checkForPermission}}
+                    {{#checkForAcceptingPermission}}
                         <td style="color: gray;">Отчет принят</td>
-                    {{/checkForPermission}}
+                    {{/checkForAcceptingPermission}}
                 {{/accepted}}
                 {{^accepted}}
                     <td style="color: red; text-align: center;">❌</td>
-                    {{#checkForPermission}}
+                    {{#checkForAcceptingPermission}}
                         <td>
                             <form action="/reports/{{id}}" method="POST">
                                 <input type="submit" value="Принять отчет">
                                 <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
                             </form>
                         </td>
-                    {{/checkForPermission}}
+                    {{/checkForAcceptingPermission}}
                 {{/accepted}}
             </tr>
         {{/reports}}
