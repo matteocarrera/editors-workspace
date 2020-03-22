@@ -1,51 +1,68 @@
 <html>
 <body>
 <a href="/main">Главная страница</a>
-<h1>Таблица отчетов пользователя <i>{{user.username}}</i></h1>
-<table border="1" cellpadding="5" style="border-collapse: collapse;">
-    <thead>
-    <tr>
-        <th>Заголовок</th>
-        <th>Потраченное время<br>(в минутах)</th>
-        <th>Дата выполнения</th>
-        <th>Файл отчета</th>
-        <th>Итоговый файл</th>
-        <th>Комментарии</th>
-        <th>Статус</th>
-        {{#checkForPermission}}
-            <th>Принять отчет</th>
-        {{/checkForPermission}}
-    </tr>
-    </thead>
-    <tbody>
-    {{#reports}}
-    <tr>
-        <td>{{title}}</td>
-        <td>{{timeSpent}}</td>
-        <td>{{stringDate}}</td>
-        <td><a href="/reports/{{reportLink}}">Скачать файл</a></td>
-        <td><a href="/reports/{{resultLink}}">Скачать файл</a></td>
-        <td>{{comments}}</td>
-        {{#accepted}}
-            <td style="color: green; text-align: center;">✔</td>
+<h1>Таблица отчетов пользователя <i>{{#user}}{{name}} {{surname}}{{/user}}</i><i style="color: gray;">{{^user}}*пользователь не выбран*{{/user}}</i></h1>
+{{#checkForPermission}}
+<form action="/reports" method="post">
+    Пользователь:
+    <select name="selectedUser">
+        {{#users}}
+            <option value="{{id}}">{{name}} {{surname}}</option>
+        {{/users}}
+    </select>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/><br>
+    <button type="submit">Загрузить отчеты</button>
+</form>
+{{/checkForPermission}}
+{{#hasReports}}
+    <table border="1" cellpadding="5" style="border-collapse: collapse;">
+        <thead>
+        <tr>
+            <th>Заголовок</th>
+            <th>Потраченное время<br>(в минутах)</th>
+            <th>Дата выполнения</th>
+            <th>Файл отчета</th>
+            <th>Итоговый файл</th>
+            <th>Комментарии</th>
+            <th>Статус</th>
             {{#checkForPermission}}
-                <td style="color: gray;">Отчет принят</td>
+                <th>Принять отчет</th>
             {{/checkForPermission}}
-        {{/accepted}}
-        {{^accepted}}
-            <td style="color: red; text-align: center;">❌</td>
-            {{#checkForPermission}}
-                <td>
-                    <form action="/reports/{{id}}" method="POST">
-                        <input type="submit" value="Принять отчет">
-                        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-                    </form>
-                </td>
-            {{/checkForPermission}}
-        {{/accepted}}
-    </tr>
-    {{/reports}}
-    </tbody>
-</table>
+        </tr>
+        </thead>
+        <tbody>
+        {{#reports}}
+            <tr>
+                <td>{{title}}</td>
+                <td>{{timeSpent}}</td>
+                <td>{{stringDate}}</td>
+                <td><a href="/reports/{{reportLink}}">Скачать файл</a></td>
+                <td><a href="/reports/{{resultLink}}">Скачать файл</a></td>
+                <td>{{comments}}</td>
+                {{#accepted}}
+                    <td style="color: green; text-align: center;">✔</td>
+                    {{#checkForPermission}}
+                        <td style="color: gray;">Отчет принят</td>
+                    {{/checkForPermission}}
+                {{/accepted}}
+                {{^accepted}}
+                    <td style="color: red; text-align: center;">❌</td>
+                    {{#checkForPermission}}
+                        <td>
+                            <form action="/reports/{{id}}" method="POST">
+                                <input type="submit" value="Принять отчет">
+                                <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                            </form>
+                        </td>
+                    {{/checkForPermission}}
+                {{/accepted}}
+            </tr>
+        {{/reports}}
+        </tbody>
+    </table>
+{{/hasReports}}
+{{^hasReports}}
+    <i style="color: red;">Пользователь не выбран или у данного пользователя нет отчетов.</i>
+{{/hasReports}}
 </body>
 </html>

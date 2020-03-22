@@ -3,6 +3,7 @@ package com.urfusoftware.controllers;
 import com.urfusoftware.domain.Report;
 import com.urfusoftware.domain.User;
 import com.urfusoftware.repositories.ReportRepository;
+import com.urfusoftware.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -11,9 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import sun.invoke.empty.Empty;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +27,8 @@ import java.util.*;
 public class ReportController {
     @Autowired
     private ReportRepository reportRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @Value("${upload.path}")
     private String uploadPath;
@@ -41,59 +42,45 @@ public class ReportController {
     }
 
     @PostMapping("/reports/add")
-    public String reportSave(
-            @AuthenticationPrincipal User user,
-            @RequestParam String title,
-            @RequestParam String timeSpent,
-            @RequestParam String reportDate,
-            @RequestParam("reportLink") MultipartFile reportFile,
-            @RequestParam("resultLink") MultipartFile resultFile,
-            @RequestParam String comments,
-            RedirectAttributes attributes) throws ParseException, IOException {
+    public String reportSave(@AuthenticationPrincipal User user, @RequestParam String title,
+                             @RequestParam String timeSpent, @RequestParam String reportDate,
+                             @RequestParam("reportLink") MultipartFile reportFile,
+                             @RequestParam("resultLink") MultipartFile resultFile,
+                             @RequestParam String comments, RedirectAttributes attributes) throws ParseException, IOException {
         if (title.isEmpty() || comments.isEmpty() || reportFile.isEmpty() || resultFile.isEmpty()) {
             attributes.addFlashAttribute("message", "ОШИБКА! Поля не могут быть пустыми!");
             return "redirect:/reports/add";
         } else {
-            Report report = new Report();
-
-            report.setTitle(title);
-            report.setReportLink(setLink(reportFile));
-            report.setResultLink(setLink(resultFile));
-            report.setAccepted(false);
-            report.setUser(user);
-            report.setDate(dateFormat.parse(reportDate));
-            report.setTimeSpent(Integer.parseInt(timeSpent));
-            report.setComments(comments);
+            Report report = new Report(title, dateFormat.parse(reportDate), Integer.parseInt(timeSpent),
+                    setLink(reportFile), setLink(resultFile), comments, false, user);
             reportRepository.save(report);
         }
         return "redirect:/main";
     }
 
     @GetMapping("/reports")
-    private String getReports(@AuthenticationPrincipal User currentUser, Model model) {
-        model.addAttribute("user", currentUser);
-        List<Report> userReports = new ArrayList<>();
-
-        for (Report report : reportRepository.findAllByOrderByIdAsc()) {
-            if (report.getUser().getId().equals(currentUser.getId())) {
-                String reportDate = report.getDate().toString().substring(0, 10);
-                String dateInRusFormat = reportDate.substring(8, 10) +
-                        "." + reportDate.substring(5, 7) +
-                        "." + reportDate.substring(0, 4);
-                report.setStringDate(dateInRusFormat);
-                userReports.add(report);
-            }
-        }
-
-        if (currentUser.getRole().getName().equals("Администратор") ||
-                currentUser.getRole().getName().equals("Менеджер")) {
-            model.addAttribute("checkForPermission", true);
+    private String loadReportPage(@AuthenticationPrincipal User currentUser, Model model) {
+        model.addAttribute("users", userRepository.findAll());
+        if (!currentUser.getRole().getName().equals("Администратор") &&
+                !currentUser.getRole().getName().equals("Менеджер")) {
+            model.addAttribute("user", currentUser);
+            List<Report> userReports = getUserReports(currentUser);
+            if (userReports.size() != 0) model.addAttribute("hasReports", true);
+            model.addAttribute("reports", userReports);
         } else {
-            model.addAttribute("checkForPermission", false);
+            model.addAttribute("checkForPermission", true);
         }
-        model.addAttribute("reports", userReports);
-
         return "reports";
+    }
+
+    @PostMapping("/reports")
+    public String getReports(@RequestParam User selectedUser, RedirectAttributes attributes) {
+        attributes.addFlashAttribute("user", selectedUser);
+        List<Report> userReports = getUserReports(selectedUser);
+        if (userReports.size() != 0) attributes.addFlashAttribute("hasReports", true);
+        attributes.addFlashAttribute("reports", userReports);
+
+        return "redirect:/reports";
     }
 
     @GetMapping("/reports/{fileName}")
@@ -132,5 +119,21 @@ public class ReportController {
             return link;
         }
         return "";
+    }
+
+    private List<Report> getUserReports(User user) {
+        List<Report> userReports = new ArrayList<>();
+
+        for (Report report : reportRepository.findAllByOrderByIdAsc()) {
+            if (report.getUser().getId().equals(user.getId())) {
+                String reportDate = report.getDate().toString().substring(0, 10);
+                String dateInRusFormat = reportDate.substring(8, 10) +
+                        "." + reportDate.substring(5, 7) +
+                        "." + reportDate.substring(0, 4);
+                report.setStringDate(dateInRusFormat);
+                userReports.add(report);
+            }
+        }
+        return userReports;
     }
 }

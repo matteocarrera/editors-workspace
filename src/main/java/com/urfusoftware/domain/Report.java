@@ -30,6 +30,17 @@ public class Report {
     public Report() {
     }
 
+    public Report(String title, Date reportDate, int timeSpent, String reportLink, String resultLink, String comments, Boolean accepted, User user) {
+        this.title = title;
+        this.reportDate = reportDate;
+        this.timeSpent = timeSpent;
+        this.reportLink = reportLink;
+        this.resultLink = resultLink;
+        this.comments = comments;
+        this.accepted = accepted;
+        this.user = user;
+    }
+
     public Long getId() {
         return id;
     }

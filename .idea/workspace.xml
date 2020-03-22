@@ -3,17 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d9738692-36cb-4cec-b98e-aa3aff7ae078" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/SelectedReport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/SelectedRole.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Report.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create-report.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create-report.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reports.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reports.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584688711723</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixed bugs, date limit added, readable time in report list">
+      <created>1584817715656</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1584817715656</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -161,7 +160,8 @@
     <MESSAGE value="Implemented SelectedRole class and fixed bug with User Edit page (Show current role of User)" />
     <MESSAGE value="Textarea in Create Report Page set to No Resize" />
     <MESSAGE value="Create Report Form(without saving files)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Report Form(without saving files)" />
+    <MESSAGE value="Fixed bugs, date limit added, readable time in report list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bugs, date limit added, readable time in report list" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="105" key="#Application" timestamp="1584118007120">
@@ -182,11 +182,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="507" y="162" key="#com.intellij.ide.macro.MacrosDialog/0.0.1440.900@0.0.1440.900" timestamp="1583921815128" />
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1584815980104">
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1584866278851">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="612" y="186" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1584726629709" />
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1584815980104" />
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1584866278851" />
     <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1584817579034">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -199,36 +199,36 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="366" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1584379568745" />
-    <state x="430" y="2" key="CommitChangelistDialog2" timestamp="1584803291534">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="602" y="114" key="CommitChangelistDialog2" timestamp="1584817714229">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="452" y="87" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1583922173396" />
     <state x="430" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584803291534" />
-    <state x="602" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584457106044" />
-    <state width="1877" height="259" key="GridCell.Tab.0.bottom" timestamp="1584817588759">
+    <state x="602" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584817714229" />
+    <state width="1877" height="259" key="GridCell.Tab.0.bottom" timestamp="1584865924972">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583921877497" />
     <state width="1493" height="153" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584803121281" />
-    <state width="1877" height="259" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584817588759" />
-    <state width="1877" height="259" key="GridCell.Tab.0.center" timestamp="1584817588759">
+    <state width="1877" height="259" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584865924972" />
+    <state width="1877" height="259" key="GridCell.Tab.0.center" timestamp="1584865924971">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583921877494" />
     <state width="1493" height="153" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584803121281" />
-    <state width="1877" height="259" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584817588759" />
-    <state width="1877" height="259" key="GridCell.Tab.0.left" timestamp="1584817588759">
+    <state width="1877" height="259" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584865924971" />
+    <state width="1877" height="259" key="GridCell.Tab.0.left" timestamp="1584865924971">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583921877493" />
     <state width="1493" height="153" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584803121281" />
-    <state width="1877" height="259" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584817588759" />
-    <state width="1877" height="259" key="GridCell.Tab.0.right" timestamp="1584817588759">
+    <state width="1877" height="259" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584865924971" />
+    <state width="1877" height="259" key="GridCell.Tab.0.right" timestamp="1584865924972">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583921877495" />
     <state width="1493" height="153" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584803121281" />
-    <state width="1877" height="259" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584817588759" />
+    <state width="1877" height="259" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584865924972" />
     <state width="1671" height="252" key="GridCell.Tab.1.bottom" timestamp="1584079179041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -249,12 +249,12 @@
     </state>
     <state width="1398" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1583921877077" />
     <state width="1671" height="252" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584079179041" />
-    <state x="442" y="200" key="Vcs.Push.Dialog.v2" timestamp="1584803279292">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1584817717257">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="218" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1583922178457" />
     <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1584803279292" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584457108551" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584817717257" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1584803190945">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
