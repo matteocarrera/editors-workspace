@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9738692-36cb-4cec-b98e-aa3aff7ae078" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/burone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/config/MvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/config/MvcConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ReportController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create-report.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create-report.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/greeting.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/greeting.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/new-role.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/new-role.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reports.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reports.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user-list.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user-list.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/greeting.mustache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/greeting.mustache" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +57,13 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\anyap\IdeaProjects\editors-workspace\src\main\resources\static\styles" />
+      <recent name="C:\Users\anyap\IdeaProjects\editors-workspace\src\main\resources\static" />
+      <recent name="C:\Users\anyap\IdeaProjects\editors-workspace\src\main\resources" />
+      <recent name="C:\Users\anyap\IdeaProjects\editors-workspace\src\main\resources\static\img" />
+      <recent name="C:\Users\anyap\IdeaProjects\editors-workspace\src\main\resources\static\img\img" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Kyle\IdeaProjects\EditorsWorkspace\src\main\resources\templates" />
     </key>
@@ -65,7 +71,7 @@
   <component name="RunManager">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.urfusoftware.Application" />
-      <module name="EditorsWorkspace" />
+      <module name="editors-workspace" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.urfusoftware.controllers.*" />
@@ -188,10 +194,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Auto_Import/0.0.1920.1040@0.0.1920.1040" timestamp="1584794424084" />
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584813400741">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="331" y="134" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584895845889">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="331" y="134" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1584800138502" />
+    <state x="331" y="134" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1584895845889" />
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584813400741" />
     <state x="507" y="162" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1583921815128">
       <screen x="0" y="0" width="1440" height="900" />
@@ -220,29 +226,29 @@
     <state x="452" y="87" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1583922173396" />
     <state x="430" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584803291534" />
     <state x="602" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584866795457" />
-    <state width="1877" height="259" key="GridCell.Tab.0.bottom" timestamp="1584895674706">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="153" key="GridCell.Tab.0.bottom" timestamp="1584910876763">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583921877497" />
-    <state width="1493" height="153" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584803121281" />
+    <state width="1493" height="153" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584910876763" />
     <state width="1877" height="259" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584895674706" />
-    <state width="1877" height="259" key="GridCell.Tab.0.center" timestamp="1584895674706">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="153" key="GridCell.Tab.0.center" timestamp="1584910876763">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583921877494" />
-    <state width="1493" height="153" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584803121281" />
+    <state width="1493" height="153" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584910876763" />
     <state width="1877" height="259" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584895674706" />
-    <state width="1877" height="259" key="GridCell.Tab.0.left" timestamp="1584895674706">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="153" key="GridCell.Tab.0.left" timestamp="1584910876763">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583921877493" />
-    <state width="1493" height="153" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584803121281" />
+    <state width="1493" height="153" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584910876763" />
     <state width="1877" height="259" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584895674706" />
-    <state width="1877" height="259" key="GridCell.Tab.0.right" timestamp="1584895674706">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="153" key="GridCell.Tab.0.right" timestamp="1584910876763">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583921877495" />
-    <state width="1493" height="153" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584803121281" />
+    <state width="1493" height="153" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584910876763" />
     <state width="1877" height="259" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584895674706" />
     <state width="1671" height="252" key="GridCell.Tab.1.bottom" timestamp="1584079179041">
       <screen x="0" y="0" width="1920" height="1040" />

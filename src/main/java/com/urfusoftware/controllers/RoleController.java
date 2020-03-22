@@ -24,8 +24,8 @@ public class RoleController {
 
     @PostMapping("/roles")
     public String addRole(@RequestParam String roleName,
-                          @RequestParam(value = "canAcceptReport") String canAcceptReport,
-                          @RequestParam(value = "canSeeList") String canSeeList,
+                          @RequestParam(value = "canAcceptReport", required = false) String canAcceptReport,
+                          @RequestParam(value = "canSeeList", required = false) String canSeeList,
                           RedirectAttributes attributes) {
         Role existingRole = roleRepository.findByName(roleName);
         if (existingRole != null) {
