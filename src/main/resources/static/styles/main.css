@@ -33,3 +33,29 @@ a:hover {
 	border: none;
 	background: transparent;
 }
+
+.submit {
+    width: 300px;
+	background: #FED13C;
+	border-radius: 50px;
+	border: 1px solid black;
+	margin-top: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.submit:hover {
+    background: #fec13c;
+}
+
+@-webkit-keyframes autofill {
+  to {
+    color: inherit;
+    background: #FFF;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}

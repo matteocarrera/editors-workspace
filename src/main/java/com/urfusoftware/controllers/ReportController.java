@@ -36,7 +36,8 @@ public class ReportController {
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     @GetMapping("/reports/add")
-    public String reports(Model model) {
+    public String reports(@AuthenticationPrincipal User currentUser, Model model) {
+        model.addAttribute("user", currentUser);
         model.addAttribute("tomorrow", dateFormat.format(Calendar.getInstance().getTime()));
         return "create-report";
     }
@@ -47,10 +48,11 @@ public class ReportController {
                              @RequestParam("reportLink") MultipartFile reportFile,
                              @RequestParam("resultLink") MultipartFile resultFile,
                              @RequestParam String comments, RedirectAttributes attributes) throws ParseException, IOException {
-        if (title.isEmpty() || comments.isEmpty() || reportFile.isEmpty() || resultFile.isEmpty()) {
+        if (title.isEmpty() || reportFile.isEmpty() || resultFile.isEmpty()) {
             attributes.addFlashAttribute("message", "ОШИБКА! Поля не могут быть пустыми!");
             return "redirect:/reports/add";
         } else {
+            if (comments.isEmpty()) comments = "-";
             Report report = new Report(title, dateFormat.parse(reportDate), Integer.parseInt(timeSpent),
                     setLink(reportFile), setLink(resultFile), comments, false, user);
             reportRepository.save(report);

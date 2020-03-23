@@ -1,23 +1,85 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание отчета</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/styles/main.css">
+</head>
 <body>
-<a href="/">Назад</a>
-<h1>Создание отчета</h1>
-<div>
-    <form method="post" enctype="multipart/form-data">
-        Название: <input type="text" name="title"/><br>
-        Затраченное время: <input type="number" name="timeSpent"/><br>
-        Дата выполнения: <input type="date" name="reportDate" max="{{tomorrow}}"/><br>
-        Файл отчета: <input type="file" name="reportLink"><br>
-        Итоговый файл: <input type="file" name="resultLink"><br>
-        Комментарии: <br><textarea name="comments" rows="5" cols="40" style="resize: none;"></textarea><br>
+<nav class="navbar navbar-inverse shadow-sm mb-3">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="/static/burone.png" class="img"></a>
+        </div>
+        <ul class="nav navbar">
+            <li class="mr-4">
+                {{user.name}} {{user.surname}}
+            </li>
+            <li>
+                <form action="/logout" method="post">
+                    <button class="btn p-0" type="submit"><i class="fa fa-sign-out" aria-hidden="true"></i> Выход
+                    </button>
+                    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="mt-4 mb-4">
+        <h3>Создание отчета</h3>
+    </div>
+    <form class="create-report" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="title">Название:</label>
+                <input class="form-control" type="text" name="title" id="title" placeholder="Введите название" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="timeSpent">Затраченное время:</label>
+                <input class="form-control" type="number" name="timeSpent" placeholder="Введите время" id="timeSpent"
+                       required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="reportDate">Дата выполнения: </label>
+                <input class="form-control" type="date" name="reportDate" id="reportDate" max="{{tomorrow}}"
+                       placeholder="Введите дату" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="reportLink">Файл отчета:</label><br>
+                <input type="file" name="reportLink" id="reportLink" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="resultLink">Итоговый файл:</label><br>
+                <input type="file" name="resultLink" id="resultLink" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="comments">Комментарии:</label>
+                <textarea class="form-control" name="comments" id="comments" rows="5" style="resize: none;"></textarea>
+            </div>
+        </div>
         <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-        <button type="submit">Добавить отчет</button>
+        <div class="form-row">
+            <div class="form-group">
+                <button class="submit" type="submit">Добавить отчет</button>
+            </div>
+        </div>
     </form>
     {{#message}}
         <strong style="color: red">{{message}}</strong>
     {{/message}}
 </div>
 </body>
-
 </html>
