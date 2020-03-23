@@ -1,68 +1,112 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход в систему</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/styles/main.css">
+
+
+</head>
 <body>
-<a href="/">Главная страница</a>
-<h1>Таблица отчетов пользователя <i>{{#user}}{{name}} {{surname}}{{/user}}</i><i style="color: gray;">{{^user}}*пользователь не выбран*{{/user}}</i></h1>
-{{#checkForWatchingPermission}}
-<form action="/reports" method="post">
-    Пользователь:
-    <select name="selectedUser">
-        {{#users}}
-            <option value="{{id}}">{{name}} {{surname}}</option>
-        {{/users}}
-    </select>
-    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/><br>
-    <button type="submit">Загрузить отчеты</button>
-</form>
-{{/checkForWatchingPermission}}
-{{#hasReports}}
-    <table border="1" cellpadding="5" style="border-collapse: collapse;">
-        <thead>
-        <tr>
-            <th>Заголовок</th>
-            <th>Потраченное время<br>(в минутах)</th>
-            <th>Дата выполнения</th>
-            <th>Файл отчета</th>
-            <th>Итоговый файл</th>
-            <th>Комментарии</th>
-            <th>Статус</th>
-            {{#checkForAcceptingPermission}}
-                <th>Принять отчет</th>
-            {{/checkForAcceptingPermission}}
-        </tr>
-        </thead>
-        <tbody>
-        {{#reports}}
+<nav class="navbar navbar-inverse shadow-sm mb-3">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="/static/burone.png" class="img"></a>
+        </div>
+        <ul class="nav navbar">
+            <li class="mr-4">
+                Анна Кислых
+            </li>
+            <li>
+                <form action="/logout" method="post">
+                    <button class="btn p-0" type="submit"><i class="fa fa-sign-out" aria-hidden="true"></i> Выход
+                    </button>
+                    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="mt-4 mb-4">
+        <h3>Таблица отчетов пользователя <i>{{#user}}{{name}} {{surname}}{{/user}}</i><i style="color: gray;">{{^user}}
+            *пользователь не выбран*{{/user}}</i></h3>
+    </div>
+    {{#checkForWatchingPermission}}
+        <form action="/reports" method="post">
+            Пользователь:
+            <select name="selectedUser">
+                {{#users}}
+                    <option value="{{id}}">{{name}} {{surname}}</option>
+                {{/users}}
+            </select>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/><br>
+            <button type="submit">Загрузить отчеты</button>
+        </form>
+    {{/checkForWatchingPermission}}
+    {{#hasReports}}
+        <table class="table">
+            <thead>
             <tr>
-                <td>{{title}}</td>
-                <td>{{timeSpent}}</td>
-                <td>{{stringDate}}</td>
-                <td><a href="/reports/{{reportLink}}">Скачать файл</a></td>
-                <td><a href="/reports/{{resultLink}}">Скачать файл</a></td>
-                <td>{{comments}}</td>
-                {{#accepted}}
-                    <td style="color: green; text-align: center;">✔</td>
-                    {{#checkForAcceptingPermission}}
-                        <td style="color: gray;">Отчет принят</td>
-                    {{/checkForAcceptingPermission}}
-                {{/accepted}}
-                {{^accepted}}
-                    <td style="color: red; text-align: center;">❌</td>
-                    {{#checkForAcceptingPermission}}
-                        <td>
-                            <form action="/reports/{{id}}" method="POST">
-                                <input type="submit" value="Принять отчет">
-                                <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-                            </form>
-                        </td>
-                    {{/checkForAcceptingPermission}}
-                {{/accepted}}
+                <th scope="col">Заголовок</th>
+                <th scope="col">Потраченное время, мин</th>
+                <th scope="col">Дата выполнения</th>
+                <th scope="col">Файл отчета</th>
+                <th scope="col">Итоговый файл</th>
+                <th scope="col">Комментарии</th>
+                <th scope="col">Статус</th>
+                {{#checkForAcceptingPermission}}
+                    <th>Принять отчет</th>
+                {{/checkForAcceptingPermission}}
             </tr>
-        {{/reports}}
-        </tbody>
-    </table>
-{{/hasReports}}
-{{^hasReports}}
-    <i style="color: red;">Пользователь не выбран или у данного пользователя нет отчетов.</i>
-{{/hasReports}}
+            </thead>
+            <tbody>
+            {{#reports}}
+                <tr>
+                    <td>{{title}}</td>
+                    <td>{{timeSpent}}</td>
+                    <td>{{stringDate}}</td>
+                    <td><a href="/reports/{{reportLink}}">Скачать файл</a></td>
+                    <td><a href="/reports/{{resultLink}}">Скачать файл</a></td>
+                    <td>{{comments}}</td>
+                    {{#accepted}}
+                        <td style="color: green; text-align: center;">✔</td>
+                        {{#checkForAcceptingPermission}}
+                            <td style="color: gray;">Отчет принят</td>
+                        {{/checkForAcceptingPermission}}
+                    {{/accepted}}
+                    {{^accepted}}
+                        <td style="color: red; text-align: center;">❌</td>
+                        {{#checkForAcceptingPermission}}
+                            <td>
+                                <form action="/reports/{{id}}" method="POST">
+                                    <input type="submit" value="Принять отчет">
+                                    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                                </form>
+                            </td>
+                        {{/checkForAcceptingPermission}}
+                    {{/accepted}}
+                </tr>
+            {{/reports}}
+            </tbody>
+        </table>
+    {{/hasReports}}
+    {{^hasReports}}
+        <i style="color: red;">Пользователь не выбран или у данного пользователя нет отчетов.</i>
+    {{/hasReports}}
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
 </html>
