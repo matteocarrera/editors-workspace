@@ -20,12 +20,22 @@ body {
     height: 50%;
 }
 
+.card {
+    color: #FED13C;
+    transition: 0.6s;
+}
+
+.card .col {
+    color: #000;
+}
+
 .card:hover {
+    color: #000;
     background: #FED13C;
+    transition: 0.6s;
 }
 
 a:hover {
-    color: black;
 	text-decoration: none;
 }
 

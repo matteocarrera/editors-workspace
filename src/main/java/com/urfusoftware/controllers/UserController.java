@@ -25,9 +25,9 @@ public class UserController {
     private RoleRepository roleRepository;
 
     @GetMapping("/users")
-    public String userList(Model model) {
+    public String userList(@AuthenticationPrincipal User currentUser, Model model) {
         model.addAttribute("users", userRepository.findAll());
-
+        model.addAttribute("user", currentUser);
         return "user-list";
     }
 

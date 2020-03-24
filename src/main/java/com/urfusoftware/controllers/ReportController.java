@@ -63,7 +63,7 @@ public class ReportController {
     @GetMapping("/reports")
     private String loadReportPage(@AuthenticationPrincipal User currentUser, Model model) {
         model.addAttribute("users", userRepository.findAll());
-
+        model.addAttribute("user", currentUser);
         if (currentUser.getRole().canAcceptReport() && currentUser.getRole().canSeeList()) {
             model.addAttribute("checkForWatchingPermission", true);
             model.addAttribute("checkForAcceptingPermission", true);
