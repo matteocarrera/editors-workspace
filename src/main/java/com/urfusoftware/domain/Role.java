@@ -14,9 +14,6 @@ public class Role implements GrantedAuthority {
     private Long id;
 
     private String name;
-    private boolean isSystem;
-    private boolean canAcceptReport;
-    private boolean canSeeList;
 
     @Transient
     private String selected;
@@ -24,11 +21,8 @@ public class Role implements GrantedAuthority {
     public Role() {
     }
 
-    public Role(String name, boolean isSystem, boolean canAcceptReport, boolean canSeeList) {
+    public Role(String name) {
         this.name = name;
-        this.isSystem = isSystem;
-        this.canAcceptReport = canAcceptReport;
-        this.canSeeList = canSeeList;
     }
 
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
@@ -58,32 +52,8 @@ public class Role implements GrantedAuthority {
         this.users = users;
     }
 
-    public boolean isSystem() {
-        return isSystem;
-    }
-
-    public void setSystem(boolean system) {
-        isSystem = system;
-    }
-
     public String getSelected() {
         return selected;
-    }
-
-    public boolean canAcceptReport() {
-        return canAcceptReport;
-    }
-
-    public void setCanAcceptReport(boolean canAcceptReport) {
-        this.canAcceptReport = canAcceptReport;
-    }
-
-    public boolean canSeeList() {
-        return canSeeList;
-    }
-
-    public void setCanSeeList(boolean canSeeList) {
-        this.canSeeList = canSeeList;
     }
 
     public void setSelected(String selected) {

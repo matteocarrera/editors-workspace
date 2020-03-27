@@ -2,7 +2,7 @@
 <html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Создание отчета</title>
+    <title>Добавление проекта</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -31,9 +31,9 @@
 </nav>
 <div class="container">
     <div class="mt-4 mb-4">
-        <h3>Создание отчета</h3>
+        <h3>Добавление проекта</h3>
     </div>
-    <form class="create-report" method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="title">Название:</label>
@@ -42,54 +42,41 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="project">Прикрепить отчет к проекту:</label>
-                <select class="form-control custom-select" name="project" required>
-                    {{#project}}
-                        <option value="{{id}}">{{title}}</option>
-                    {{/project}}
+                <label for="manager">Назначить менеджера на проект:</label>
+                <select class="form-control custom-select" name="manager" required>
+                    {{#manager}}
+                        <option value="{{id}}">{{name}} {{surname}}</option>
+                    {{/manager}}
                 </select>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-3">
-                <label for="timeSpent">Затраченное время:</label>
-                <input class="form-control" type="number" name="timeSpent" placeholder="Введите время" id="timeSpent"
-                       required>
-            </div>
-            <div class="form-group col-md-3">
-                <label for="reportDate">Дата выполнения: </label>
-                <input class="form-control" type="date" name="reportDate" id="reportDate" max="{{tomorrow}}"
-                       placeholder="Введите дату" required>
+            <div class="form-group col-md-6">
+                <label for="translator">Назначить переводчика на проект:</label>
+                <select class="form-control custom-select" name="translator" required>
+                    {{#translator}}
+                        <option value="{{id}}">{{name}} {{surname}}</option>
+                    {{/translator}}
+                </select>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="reportLink">Файл отчета:</label><br>
-                <input type="file" name="reportLink" id="reportLink" required>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="resultLink">Итоговый файл:</label><br>
-                <input type="file" name="resultLink" id="resultLink" required>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="comments">Комментарии:</label>
-                <textarea class="form-control" name="comments" id="comments" rows="5" style="resize: none;"></textarea>
+                <label for="editor">Назначить редактора на проект:</label>
+                <select class="form-control custom-select" name="editor" required>
+                    {{#editor}}
+                        <option value="{{id}}">{{name}} {{surname}}</option>
+                    {{/editor}}
+                </select>
             </div>
         </div>
         <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         <div class="form-row mt-4">
             <div class="form-group col-md-6">
-                <button class="submit" type="submit">Добавить отчет</button>
+                <button class="submit" type="submit">Добавить проект</button>
             </div>
         </div>
     </form>
-    {{#message}}
-        <strong style="color: red">{{message}}</strong>
-    {{/message}}
 </div>
 </body>
 </html>

@@ -15,4 +15,10 @@ public class MainController {
         model.addAttribute("user", currentUser);
         return "main";
     }
+
+    @GetMapping("/roles")
+    public String roles(@AuthenticationPrincipal User currentUser, Model model) {
+        model.addAttribute("user", currentUser);
+        return "roles";
+    }
 }

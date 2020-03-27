@@ -1,7 +1,9 @@
 package com.urfusoftware.controllers;
 
+import com.urfusoftware.domain.Project;
 import com.urfusoftware.domain.Report;
 import com.urfusoftware.domain.User;
+import com.urfusoftware.repositories.ProjectRepository;
 import com.urfusoftware.repositories.ReportRepository;
 import com.urfusoftware.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,8 @@ public class ReportController {
     private ReportRepository reportRepository;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private ProjectRepository projectRepository;
 
     @Value("${upload.path}")
     private String uploadPath;
@@ -38,12 +42,16 @@ public class ReportController {
     @GetMapping("/reports/add")
     public String reports(@AuthenticationPrincipal User currentUser, Model model) {
         model.addAttribute("user", currentUser);
+        if (currentUser.getRole().getName().toLowerCase().contains("переводчик"))
+            model.addAttribute("project", projectRepository.findByTranslator(currentUser));
+        else
+            model.addAttribute("project", projectRepository.findByEditor(currentUser));
         model.addAttribute("tomorrow", dateFormat.format(Calendar.getInstance().getTime()));
         return "create-report";
     }
 
     @PostMapping("/reports/add")
-    public String reportSave(@AuthenticationPrincipal User user, @RequestParam String title,
+    public String reportSave(@AuthenticationPrincipal User user, @RequestParam String title, @RequestParam Project project,
                              @RequestParam String timeSpent, @RequestParam String reportDate,
                              @RequestParam("reportLink") MultipartFile reportFile,
                              @RequestParam("resultLink") MultipartFile resultFile,
@@ -53,7 +61,7 @@ public class ReportController {
             return "redirect:/reports/add";
         } else {
             if (comments.isEmpty()) comments = "-";
-            Report report = new Report(title, dateFormat.parse(reportDate), Integer.parseInt(timeSpent),
+            Report report = new Report(title, project, dateFormat.parse(reportDate), Integer.parseInt(timeSpent),
                     setLink(reportFile), setLink(resultFile), comments, false, user);
             reportRepository.save(report);
         }
@@ -64,10 +72,10 @@ public class ReportController {
     private String loadReportPage(@AuthenticationPrincipal User currentUser, Model model) {
         model.addAttribute("users", userRepository.findAll());
         model.addAttribute("user", currentUser);
-        if (currentUser.getRole().canAcceptReport() && currentUser.getRole().canSeeList()) {
+        if (currentUser.getRole().getName().equals("Администратор") || currentUser.getRole().getName().equals("Менеджер")) {
             model.addAttribute("checkForWatchingPermission", true);
             model.addAttribute("checkForAcceptingPermission", true);
-        } else if (!currentUser.getRole().canAcceptReport() && currentUser.getRole().canSeeList()) {
+        } else if (currentUser.getRole().getName().equals("Старший переводчик") || currentUser.getRole().getName().equals("Старший редактор")) {
             model.addAttribute("checkForWatchingPermission", true);
         } else {
             model.addAttribute("user", currentUser);

@@ -27,11 +27,16 @@ public class Report {
     @JoinColumn(name = "users_id", nullable = false)
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "project_id", nullable = false)
+    private Project project;
+
     public Report() {
     }
 
-    public Report(String title, Date reportDate, int timeSpent, String reportLink, String resultLink, String comments, Boolean accepted, User user) {
+    public Report(String title, Project project, Date reportDate, int timeSpent, String reportLink, String resultLink, String comments, Boolean accepted, User user) {
         this.title = title;
+        this.project = project;
         this.reportDate = reportDate;
         this.timeSpent = timeSpent;
         this.reportLink = reportLink;

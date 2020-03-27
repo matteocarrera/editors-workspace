@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/fb3dc001db.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/styles/main.css">
 </head>
 <body>
@@ -37,7 +37,7 @@
     {{#checkForWatchingPermission}}
         <form action="/reports" method="post">
             Пользователь:
-            <select name="selectedUser">
+            <select name="selectedUser" required>
                 <option value="" disabled selected>Выберите пользователя</option>
                 {{#users}}
                     <option value="{{id}}">{{name}} {{surname}}</option>
@@ -51,7 +51,8 @@
         <table class="table mt-4">
             <thead>
             <tr>
-                <th scope="col">Заголовок</th>
+                <th scope="col">Проект</th>
+                <th scope="col">Название отчета</th>
                 <th scope="col">Потраченное время, мин</th>
                 <th scope="col">Дата выполнения</th>
                 <th scope="col">Файл отчета</th>
@@ -66,6 +67,7 @@
             <tbody>
             {{#reports}}
                 <tr>
+                    <td>{{project.title}}</td>
                     <td>{{title}}</td>
                     <td>{{timeSpent}}</td>
                     <td>{{stringDate}}</td>

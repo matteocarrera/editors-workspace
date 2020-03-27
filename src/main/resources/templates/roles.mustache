@@ -2,7 +2,7 @@
 <html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Пользователи</title>
+    <title>Роли</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -31,29 +31,44 @@
 </nav>
 <div class="container">
     <div class="mt-4 mb-4">
-        <h3>Список пользователей</h3>
+        <h3>Список ролей</h3>
     </div>
-
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">Логин</th>
-            <th scope="col">Имя</th>
-            <th scope="col">Фамилия</th>
-            <th scope="col">Текущая роль</th>
-            <th scope="col"></th>
+            <th scope="col">Роль</th>
+            <th scope="col">Описание</th>
         </tr>
         </thead>
         <tbody>
-        {{#users}}
             <tr>
-                <td>{{username}}</td>
-                <td>{{name}}</td>
-                <td>{{surname}}</td>
-                <td>{{role.name}}</td>
-                <td><a href="/users/{{id}}">Редактировать</a></td>
+                <td>Неавторизованный</td>
+                <td></td>
             </tr>
-        {{/users}}
+            <tr>
+                <td>Администратор</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Менеджер</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Переводчик</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Редактор</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Старший переводчик</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Старший редактор</td>
+                <td></td>
+            </tr>
         </tbody>
     </table>
 </div>
