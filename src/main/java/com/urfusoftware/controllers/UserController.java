@@ -36,6 +36,7 @@ public class UserController {
         if (!currentUser.getId().equals(user.getId())) {
             model.addAttribute("allowDelete", true);
         }
+        model.addAttribute("currentUser", currentUser);
         model.addAttribute("user", user);
         model.addAttribute("role", setCurrentRole(user));
         return "user-edit";
@@ -61,7 +62,9 @@ public class UserController {
     }
 
     @GetMapping(value = {"/users/{user}/delete"})
-    public String showDeleteUser(Model model, @PathVariable User user) {
+    public String showDeleteUser(@AuthenticationPrincipal User currentUser,
+                                 @PathVariable User user, Model model) {
+        model.addAttribute("currentUser", currentUser);
         model.addAttribute("user", user);
         model.addAttribute("role", setCurrentRole(user));
         model.addAttribute("deleteConfirmation", true);

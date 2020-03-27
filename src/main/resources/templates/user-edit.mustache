@@ -1,33 +1,103 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование пользователя</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/styles/main.css">
+</head>
 <body>
-<a href="/users">Назад</a>
-<h1>Редактирование пользователя</h1>
-<div>
-    <form action="/users/{{user.id}}" method="post">
-            Имя: <input type="text" name="name" value="{{user.name}}"/><br>
-            Фамилия: <input type="text" name="surname" value="{{user.surname}}"/><br>
-            Логин: <input type="text" name="username" value="{{user.username}}"/><br>
-            Пароль: <input type="text" name="password" value="{{user.password}}"/><br>
-            Роль:
-            <select name="role">
-                {{#role}}
-                    <option value="{{id}}" {{selected}}>{{name}}</option>
-                {{/role}}
-            </select>
-            <input type="hidden" name="userId" value="{{user.id}}">
-            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/><br>
-            <button type="submit">Сохранить</button>
+<nav class="navbar navbar-inverse shadow-sm mb-3">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="/static/burone.png" class="img"></a>
+        </div>
+        <ul class="nav navbar">
+            <li class="mr-4">
+                <i class="fa fa-user" aria-hidden="true"></i> {{currentUser.name}} {{currentUser.surname}}
+            </li>
+            <li>
+                <form action="/logout" method="post">
+                    <button class="btn p-0" type="submit"><i class="fa fa-sign-out" aria-hidden="true"></i> Выход
+                    </button>
+                    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="mt-4 mb-4">
+        <h3>Редактирование пользователя</h3>
+    </div>
+    <form class="create-report" action="/users/{{user.id}}" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="name">Имя:</label>
+                <input class="form-control" type="text" name="name" id="name" value="{{user.name}}" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="surname">Фамилия:</label>
+                <input class="form-control" type="text" name="surname" id="surname" value="{{user.surname}}"
+                       required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="username">Логин:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-user"></i></div>
+                    </div>
+                    <input class="form-control" type="text" name="username" id="username" value="{{user.username}}"
+                           required>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="password">Пароль:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                    </div>
+                    <input class="form-control" type="text" name="password" id="password" value="{{user.password}}"
+                           required>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="password">Роль:</label>
+                <select class="form-control custom-select" name="role">
+                    {{#role}}
+                        <option value="{{id}}" {{selected}}>{{name}}</option>
+                    {{/role}}
+                </select>
+            </div>
+        </div>
+        <input type="hidden" name="userId" value="{{user.id}}">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <div class="form-row align-items-center mt-4">
+            <div class="form-group col-md-3 text-center">
+                <button class="submit" type="submit">Сохранить</button>
+            </div>
+            {{#allowDelete}}
+                <div class="form-group col-md-3 text-right">
+                    <a class="delete" href="/users/{{user.id}}/delete">Удалить пользователя</a>
+                </div>
+            {{/allowDelete}}
+        </div>
     </form>
     {{#message}}
         <strong style="color: red">{{message}}</strong>
     {{/message}}
-    {{#allowDelete}}
-        <a href="/users/{{user.id}}/delete">Удалить</a>
-    {{/allowDelete}}
     {{#deleteConfirmation}}
         <form action="/users/{{user.id}}/delete" method="POST">
-            Вы действительно хотите удалить пользователя? <input type="submit" value="Да, удалить" />
+            Вы действительно хотите удалить пользователя? <input type="submit" value="Да, удалить"/>
             <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         </form>
     {{/deleteConfirmation}}

@@ -3,14 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="d9738692-36cb-4cec-b98e-aa3aff7ae078" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/RoleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/styles/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create-report.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create-report.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reports.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reports.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user-edit.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user-edit.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user-list.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user-list.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,30 +233,30 @@
     <state x="452" y="87" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1583922173396" />
     <state x="430" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584803291534" />
     <state x="602" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584957413961" />
-    <state width="1877" height="259" key="GridCell.Tab.0.bottom" timestamp="1585045606903">
+    <state width="1877" height="259" key="GridCell.Tab.0.bottom" timestamp="1585308042889">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583921877497" />
     <state width="1493" height="153" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584986867149" />
-    <state width="1877" height="259" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585045606903" />
-    <state width="1877" height="259" key="GridCell.Tab.0.center" timestamp="1585045606903">
+    <state width="1877" height="259" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585308042889" />
+    <state width="1877" height="259" key="GridCell.Tab.0.center" timestamp="1585308042889">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583921877494" />
     <state width="1493" height="153" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584986867149" />
-    <state width="1877" height="259" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585045606903" />
-    <state width="1877" height="259" key="GridCell.Tab.0.left" timestamp="1585045606903">
+    <state width="1877" height="259" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585308042889" />
+    <state width="1877" height="259" key="GridCell.Tab.0.left" timestamp="1585308042889">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583921877493" />
     <state width="1493" height="153" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584986867148" />
-    <state width="1877" height="259" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585045606903" />
-    <state width="1877" height="259" key="GridCell.Tab.0.right" timestamp="1585045606903">
+    <state width="1877" height="259" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585308042889" />
+    <state width="1877" height="259" key="GridCell.Tab.0.right" timestamp="1585308042889">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583921877495" />
     <state width="1493" height="153" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584986867149" />
-    <state width="1877" height="259" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585045606903" />
+    <state width="1877" height="259" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585308042889" />
     <state width="1671" height="252" key="GridCell.Tab.1.bottom" timestamp="1584079179041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -291,11 +291,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="521" y="146" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1583921573713" />
-    <state x="519" y="246" key="git4idea.merge.GitPullDialog" timestamp="1584684309007">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="649" y="311" key="git4idea.merge.GitPullDialog" timestamp="1585303620301">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="519" y="246" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1584684309007" />
-    <state x="649" y="311" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583767365397" />
+    <state x="649" y="311" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585303620301" />
     <state x="814" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1584117522338">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
