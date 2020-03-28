@@ -2,7 +2,7 @@
 <html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Пользователи</title>
+    <title>Отчеты</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -17,7 +17,7 @@
         </div>
         <ul class="nav navbar">
             <li class="mr-4">
-                <i class="fa fa-user" aria-hidden="true"></i> {{user.name}} {{user.surname}}
+                <i class="fa fa-user" aria-hidden="true"></i> {{currentUser.name}} {{currentUser.surname}}
             </li>
             <li>
                 <form action="/logout" method="post">
@@ -31,32 +31,41 @@
 </nav>
 <div class="container">
     <div class="mt-4 mb-4">
-        <h3>Список пользователей</h3>
+        <h3>Таблица проектов</h3>
     </div>
-    <div class="table-responsive">
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Логин</th>
-            <th scope="col">Имя</th>
-            <th scope="col">Фамилия</th>
-            <th scope="col">Текущая роль</th>
-            <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-        {{#users}}
-            <tr>
-                <td>{{username}}</td>
-                <td>{{name}}</td>
-                <td>{{surname}}</td>
-                <td>{{role.name}}</td>
-                <td><a href="/users/{{id}}">Редактировать</a></td>
-            </tr>
-        {{/users}}
-        </tbody>
-    </table>
-    </div>
+        <div class="table-responsive">
+            <table class="table mt-4">
+                <thead>
+                <tr>
+                    <th scope="col">Название проекта</th>
+                    <th scope="col">Менеджер</th>
+                    <th scope="col">Переводчик</th>
+                    <th scope="col">Редактор</th>
+                    <th scope="col">Статус</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#projects}}
+                    <tr>
+                        <td>{{title}}</td>
+                        <td>{{manager.name}} {{manager.surname}}</td>
+                        <td>{{translator.name}} {{translator.surname}}</td>
+                        <td>{{editor.name}} {{editor.surname}}</td>
+                        <td>{{status}}</td>
+                        {{#opened}}
+                        <td>
+                            <form action="/projects/{{id}}" method="POST">
+                                <input type="submit" value="Закрыть проект">
+                                <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                            </form>
+                        </td>
+                        {{/opened}}
+                    </tr>
+                {{/projects}}
+                </tbody>
+            </table>
+        </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

@@ -17,7 +17,7 @@
         </div>
         <ul class="nav navbar">
             <li class="mr-4">
-                <i class="fa fa-user" aria-hidden="true"></i> {{user.name}} {{user.surname}}
+                <i class="fa fa-user" aria-hidden="true"></i> {{currentUser.name}} {{currentUser.surname}}
             </li>
             <li>
                 <form action="/logout" method="post">
@@ -48,6 +48,7 @@
         </form>
     {{/checkForWatchingPermission}}
     {{#hasReports}}
+        <div class="table-responsive">
         <table class="table mt-4">
             <thead>
             <tr>
@@ -95,6 +96,7 @@
             {{/reports}}
             </tbody>
         </table>
+        </div>
     {{/hasReports}}
     {{^hasReports}}
         <i style="color: red;">Пользователь не выбран или у данного пользователя нет отчетов.</i>

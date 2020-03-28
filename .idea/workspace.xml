@@ -2,25 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9738692-36cb-4cec-b98e-aa3aff7ae078" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ProjectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Project.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/ProjectRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/project.mustache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/roles.mustache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/projects.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ProjectController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/RoleController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Report.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/RoleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create-report.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create-report.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/ProjectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/styles/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/new-role.mustache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/project.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create-project.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reports.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reports.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user-edit.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user-edit.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/roles.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/roles.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user-list.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user-list.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/main.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main.mustache" afterDir="false" />
     </list>
@@ -80,9 +73,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Application" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.urfusoftware.Application" />
-      <module name="EditorsWorkspace" />
+      <module name="editors-workspace" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.urfusoftware.controllers.*" />
@@ -93,11 +86,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Application" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -221,19 +209,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Auto_Import/0.0.1920.1040@0.0.1920.1040" timestamp="1584794424084" />
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584987174323">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="331" y="134" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585382683694">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="331" y="134" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1584986860691" />
+    <state x="331" y="134" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585382683694" />
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584987174323" />
     <state x="507" y="162" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1583921815128">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="507" y="162" key="#com.intellij.ide.macro.MacrosDialog/0.0.1440.900@0.0.1440.900" timestamp="1583921815128" />
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1585331743125">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="612" y="186" key="#com.intellij.ide.util.MemberChooser" timestamp="1585394459322">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="612" y="186" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1584726629709" />
+    <state x="612" y="186" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1585394459322" />
     <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585331743125" />
     <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1584817579034">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -253,29 +241,29 @@
     <state x="452" y="87" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1583922173396" />
     <state x="430" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584803291534" />
     <state x="602" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585308926705" />
-    <state width="1877" height="259" key="GridCell.Tab.0.bottom" timestamp="1585337203840">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="88" key="GridCell.Tab.0.bottom" timestamp="1585395808980">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583921877497" />
-    <state width="1493" height="153" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584986867149" />
+    <state width="1493" height="88" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585395808980" />
     <state width="1877" height="259" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585337203840" />
-    <state width="1877" height="259" key="GridCell.Tab.0.center" timestamp="1585337203840">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="88" key="GridCell.Tab.0.center" timestamp="1585395808980">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583921877494" />
-    <state width="1493" height="153" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584986867149" />
+    <state width="1493" height="88" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585395808980" />
     <state width="1877" height="259" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585337203840" />
-    <state width="1877" height="259" key="GridCell.Tab.0.left" timestamp="1585337203840">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="88" key="GridCell.Tab.0.left" timestamp="1585395808980">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583921877493" />
-    <state width="1493" height="153" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584986867148" />
+    <state width="1493" height="88" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585395808980" />
     <state width="1877" height="259" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585337203840" />
-    <state width="1877" height="259" key="GridCell.Tab.0.right" timestamp="1585337203840">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="88" key="GridCell.Tab.0.right" timestamp="1585395808980">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583921877495" />
-    <state width="1493" height="153" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584986867149" />
+    <state width="1493" height="88" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585395808980" />
     <state width="1877" height="259" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585337203840" />
     <state width="1671" height="252" key="GridCell.Tab.1.bottom" timestamp="1584079179041">
       <screen x="0" y="0" width="1920" height="1040" />

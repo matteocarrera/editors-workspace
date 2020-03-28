@@ -13,6 +13,9 @@ public class Project {
     private String title;
     private String status;
 
+    @Transient
+    private boolean opened;
+
     @ManyToOne
     @JoinColumn(name = "manager_id", nullable = false)
     private User manager;
@@ -58,6 +61,15 @@ public class Project {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public boolean isOpened() {
+        return opened;
+    }
+
+    public void setOpened() {
+        if (this.status.equals("В работе")) this.opened = true;
+        else this.opened = false;
     }
 
     public User getManager() {

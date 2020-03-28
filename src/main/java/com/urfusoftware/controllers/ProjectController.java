@@ -1,6 +1,7 @@
 package com.urfusoftware.controllers;
 
 import com.urfusoftware.domain.Project;
+import com.urfusoftware.domain.Report;
 import com.urfusoftware.domain.User;
 import com.urfusoftware.repositories.ProjectRepository;
 import com.urfusoftware.repositories.RoleRepository;
@@ -10,6 +11,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -38,7 +40,7 @@ public class ProjectController {
 
         model.addAttribute("editor", users);
         model.addAttribute("user", currentUser);
-        return "project";
+        return "create-project";
     }
 
     @PostMapping("/project")
@@ -48,11 +50,33 @@ public class ProjectController {
                              @RequestParam User editor) {
         Project newProject = new Project(title, "В работе", manager, translator, editor);
         projectRepository.save(newProject);
-        return "main";
+        return "redirect:/";
     }
 
     private List<User> getUsers(String firstRole, String secondRole) {
         return Stream.concat(userRepository.findByRole(roleRepository.findByName(firstRole)).stream(), userRepository.findByRole(roleRepository.findByName(secondRole)).stream())
                 .collect(Collectors.toList());
     }
+
+    @GetMapping("/projects")
+    private String loadProjectPage(@AuthenticationPrincipal User currentUser, Model model) {
+        List<Project> projects = projectRepository.findAllByOrderByIdAsc();
+        for (Project project: projects) {
+            project.setOpened();
+        }
+        model.addAttribute("projects", projects);
+        model.addAttribute("currentUser", currentUser);
+
+        return "projects";
+
+    }
+
+    @PostMapping("/projects/{projectId}")
+    private String acceptProject(@PathVariable String projectId) {
+        Project project = projectRepository.findById((long)(Integer.parseInt(projectId))).orElse(null);
+        project.setStatus("Завершен");
+        projectRepository.save(project);
+        return "redirect:/projects";
+    }
+
 }

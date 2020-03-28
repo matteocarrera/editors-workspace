@@ -15,6 +15,14 @@ body {
     background: #fff;
 }
 
+tr:hover td {
+background: rgba(254, 209, 60, 0.15)
+}
+
+tr th {
+background: rgba(254, 209, 60, 0.55)
+}
+
 .delete {
 	color: black;
 }
