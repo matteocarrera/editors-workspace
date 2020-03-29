@@ -5,6 +5,7 @@ import com.urfusoftware.domain.Report;
 import com.urfusoftware.domain.User;
 import com.urfusoftware.repositories.ProjectRepository;
 import com.urfusoftware.repositories.ReportRepository;
+import com.urfusoftware.repositories.RoleRepository;
 import com.urfusoftware.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,6 +25,8 @@ import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Controller
 public class ReportController {
@@ -33,6 +36,8 @@ public class ReportController {
     private UserRepository userRepository;
     @Autowired
     private ProjectRepository projectRepository;
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Value("${upload.path}")
     private String uploadPath;
@@ -51,32 +56,30 @@ public class ReportController {
     }
 
     @PostMapping("/reports/add")
-    public String reportSave(@AuthenticationPrincipal User user, @RequestParam String title, @RequestParam Project project,
-                             @RequestParam String timeSpent, @RequestParam String reportDate,
-                             @RequestParam("reportLink") MultipartFile reportFile,
-                             @RequestParam("resultLink") MultipartFile resultFile,
-                             @RequestParam String comments, RedirectAttributes attributes) throws ParseException, IOException {
-        if (title.isEmpty() || reportFile.isEmpty() || resultFile.isEmpty()) {
-            attributes.addFlashAttribute("message", "ОШИБКА! Поля не могут быть пустыми!");
-            return "redirect:/reports/add";
-        } else {
-            if (comments.isEmpty()) comments = "-";
-            Report report = new Report(title, project, dateFormat.parse(reportDate), Integer.parseInt(timeSpent),
-                    setLink(reportFile), setLink(resultFile), comments, false, user);
-            reportRepository.save(report);
-        }
+    public String reportSave(@AuthenticationPrincipal User user, @RequestParam String title,
+                             @RequestParam Project project, @RequestParam String timeSpent,
+                             @RequestParam String reportDate, @RequestParam("reportLink") MultipartFile reportFile,
+                             @RequestParam("resultLink") MultipartFile resultFile, @RequestParam String comments)
+            throws ParseException, IOException {
+        if (comments.isEmpty()) comments = "-";
+        Report report = new Report(title, project, dateFormat.parse(reportDate), Integer.parseInt(timeSpent),
+                setLink(reportFile), setLink(resultFile), comments, false, user);
+        reportRepository.save(report);
         return "redirect:/";
     }
 
     @GetMapping("/reports")
     private String loadReportPage(@AuthenticationPrincipal User currentUser, Model model) {
-        model.addAttribute("users", userRepository.findAll());
+        String userRole = currentUser.getRole().getName();
         model.addAttribute("currentUser", currentUser);
-        if (currentUser.getRole().getName().equals("Администратор") || currentUser.getRole().getName().equals("Менеджер")) {
+        if (userRole.equals("Администратор") || userRole.equals("Менеджер")) {
             model.addAttribute("checkForWatchingPermission", true);
             model.addAttribute("checkForAcceptingPermission", true);
-        } else if (currentUser.getRole().getName().equals("Старший переводчик") || currentUser.getRole().getName().equals("Старший редактор")) {
+            model.addAttribute("users", userRepository.findAll());
+        } else if (userRole.equals("Старший переводчик") || userRole.equals("Старший редактор")) {
             model.addAttribute("checkForWatchingPermission", true);
+            String juniorRole = userRole.substring(8, 9).toUpperCase() + userRole.substring(9);
+            model.addAttribute("users", getUsers(userRole, juniorRole));
         } else {
             model.addAttribute("user", currentUser);
             List<Report> userReports = getUserReports(currentUser);
@@ -148,5 +151,11 @@ public class ReportController {
             }
         }
         return userReports;
+    }
+
+    private List<User> getUsers(String firstRole, String secondRole) {
+        return Stream.concat(userRepository.findByRole(roleRepository.findByName(firstRole)).stream(),
+                userRepository.findByRole(roleRepository.findByName(secondRole)).stream())
+                .collect(Collectors.toList());
     }
 }

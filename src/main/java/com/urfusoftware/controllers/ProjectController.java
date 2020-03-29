@@ -7,6 +7,7 @@ import com.urfusoftware.repositories.ProjectRepository;
 import com.urfusoftware.repositories.RoleRepository;
 import com.urfusoftware.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Controller
+@PreAuthorize("hasAnyAuthority('Администратор', 'Менеджер')")
 public class ProjectController {
     @Autowired
     private UserRepository userRepository;
@@ -59,7 +61,7 @@ public class ProjectController {
     }
 
     @GetMapping("/projects")
-    private String loadProjectPage(@AuthenticationPrincipal User currentUser, Model model) {
+    public String loadProjectPage(@AuthenticationPrincipal User currentUser, Model model) {
         List<Project> projects = projectRepository.findAllByOrderByIdAsc();
         for (Project project: projects) {
             project.setOpened();
@@ -68,15 +70,13 @@ public class ProjectController {
         model.addAttribute("currentUser", currentUser);
 
         return "projects";
-
     }
 
     @PostMapping("/projects/{projectId}")
-    private String acceptProject(@PathVariable String projectId) {
+    public String acceptProject(@PathVariable String projectId) {
         Project project = projectRepository.findById((long)(Integer.parseInt(projectId))).orElse(null);
         project.setStatus("Завершен");
         projectRepository.save(project);
         return "redirect:/projects";
     }
-
 }

@@ -5,6 +5,7 @@ import com.urfusoftware.domain.User;
 import com.urfusoftware.repositories.RoleRepository;
 import com.urfusoftware.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@PreAuthorize("hasAuthority('Администратор')")
 public class UserController {
     @Autowired
     private UserRepository userRepository;

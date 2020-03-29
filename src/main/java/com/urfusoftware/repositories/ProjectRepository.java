@@ -1,7 +1,6 @@
 package com.urfusoftware.repositories;
 
 import com.urfusoftware.domain.Project;
-import com.urfusoftware.domain.Report;
 import com.urfusoftware.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 

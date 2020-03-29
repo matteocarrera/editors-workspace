@@ -35,7 +35,7 @@
             *пользователь не выбран*{{/user}}</i></h3>
     </div>
     {{#checkForWatchingPermission}}
-        <form action="/reports" method="post">
+        <form class="mb-4" action="/reports" method="post">
             Пользователь:
             <select name="selectedUser" required>
                 <option value="" disabled selected>Выберите пользователя</option>
@@ -43,13 +43,13 @@
                     <option value="{{id}}">{{name}} {{surname}}</option>
                 {{/users}}
             </select>
-            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/><br>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
             <button type="submit">Загрузить отчеты</button>
         </form>
     {{/checkForWatchingPermission}}
     {{#hasReports}}
         <div class="table-responsive">
-        <table class="table mt-4">
+        <table class="table">
             <thead>
             <tr>
                 <th scope="col">Проект</th>
