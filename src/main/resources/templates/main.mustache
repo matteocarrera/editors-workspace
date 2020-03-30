@@ -147,50 +147,78 @@
                 </a>
             </div>
 
-        <div class="col-xl-12 col-md-12 mb-4">
-            <div class="card card-info shadow-sm">
-                <div class="card-header py-3">
-                    <h6 class="m-0 text-xs font-weight-bold text-uppercase">Информация по проектам</h6>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-xl-3 col-md-6 py-2">
-                            <div class="col px-0">
-                                <h2>{{countOfDoneProjects}}</h2>
+            <div class="col-xl-12 col-md-12 mb-4">
+                <div class="card card-info shadow-sm">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 text-xs font-weight-bold text-uppercase">Информация по проектам</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6 py-2">
+                                <div class="col px-0">
+                                    <h2>{{countOfDoneProjects}}</h2>
+                                </div>
+                                <div class="col px-0">
+                                    Проектов выполнено
+                                </div>
                             </div>
-                            <div class="col px-0">
-                                Проектов выполнено
+                            <div class="col-xl-3 col-md-6 py-2">
+                                <div class="col px-0">
+                                    <h2>{{countOfDoneReports}}</h2>
+                                </div>
+                                <div class="col px-0">
+                                    Отчетов сдано
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6 py-2">
-                            <div class="col px-0">
-                                <h2>{{countOfDoneReports}}</h2>
+                            <div class="col-xl-3 col-md-6 py-2">
+                                <div class="col px-0">
+                                    <h2>{{countOfUndoneReports}}</h2>
+                                </div>
+                                <div class="col px-0">
+                                    Отчетов на проверке
+                                </div>
                             </div>
-                            <div class="col px-0">
-                                Отчетов сдано
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6 py-2">
-                            <div class="col px-0">
-                                <h2>{{countOfUndoneReports}}</h2>
-                            </div>
-                            <div class="col px-0">
-                                Отчетов на проверке
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6 py-2">
-                            <div class="col px-0">
-                                <h2>{{averageMins}}</h2>
-                            </div>
-                            <div class="col px-0">
-                                Среднее выполение работы в минутах
+                            <div class="col-xl-3 col-md-6 py-2">
+                                <div class="col px-0">
+                                    <h2>{{averageMins}}</h2>
+                                </div>
+                                <div class="col px-0">
+                                    Среднее выполение работы в минутах
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         {{/isManager}}
+        {{#isWorker}}
+            <div class="col-xl-12 col-md-12 mb-4">
+                <div class="card card-info shadow-sm">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 text-xs font-weight-bold text-uppercase">Новостная лента</h6>
+                    </div>
+                    <div class="card-body">
+                        {{#news}}
+                            <div class="row">
+                                <div class="col-xl-3 col-md-3 py-2">
+                                    {{stringDate}}
+                                </div>
+                                <div class="col-xl-9 col-md-9 py-2">
+                                    {{text}}
+                                </div>
+                            </div>
+                        {{/news}}
+                        {{^news}}
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12 py-2">
+                                    Новостей нет
+                                </div>
+                            </div>
+                        {{/news}}
+                    </div>
+                </div>
+            </div>
+        {{/isWorker}}
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

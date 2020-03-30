@@ -1,8 +1,9 @@
 package com.urfusoftware.controllers;
 
+import com.urfusoftware.domain.News;
 import com.urfusoftware.domain.Project;
-import com.urfusoftware.domain.Report;
 import com.urfusoftware.domain.User;
+import com.urfusoftware.repositories.NewsRepository;
 import com.urfusoftware.repositories.ProjectRepository;
 import com.urfusoftware.repositories.RoleRepository;
 import com.urfusoftware.repositories.UserRepository;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -23,12 +27,11 @@ import java.util.stream.Stream;
 @Controller
 @PreAuthorize("hasAnyAuthority('Администратор', 'Менеджер')")
 public class ProjectController {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private RoleRepository roleRepository;
-    @Autowired
-    private ProjectRepository projectRepository;
+    @Autowired private UserRepository userRepository;
+    @Autowired private RoleRepository roleRepository;
+    @Autowired private ProjectRepository projectRepository;
+    @Autowired private NewsRepository newsRepository;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     @GetMapping("/project")
     public String project(@AuthenticationPrincipal User currentUser, Model model) {
@@ -46,17 +49,22 @@ public class ProjectController {
     }
 
     @PostMapping("/project")
-    public String addProject(@RequestParam String title,
+    public String addProject(@AuthenticationPrincipal User currentUser,
+                             @RequestParam String title,
                              @RequestParam User manager,
                              @RequestParam User translator,
-                             @RequestParam User editor) {
+                             @RequestParam User editor) throws ParseException {
         Project newProject = new Project(title, "В работе", manager, translator, editor);
         projectRepository.save(newProject);
+        String newsText = "Пользователь " + currentUser.getName() + " " + currentUser.getSurname() +
+                " (" + currentUser.getUsername() + ") добавил новый проект \"" + title + "\" в систему";
+        newsRepository.save(new News(newsText, dateFormat.parse(LocalDate.now().toString())));
         return "redirect:/";
     }
 
     private List<User> getUsers(String firstRole, String secondRole) {
-        return Stream.concat(userRepository.findByRole(roleRepository.findByName(firstRole)).stream(), userRepository.findByRole(roleRepository.findByName(secondRole)).stream())
+        return Stream.concat(userRepository.findByRole(roleRepository.findByName(firstRole)).stream(),
+                userRepository.findByRole(roleRepository.findByName(secondRole)).stream())
                 .collect(Collectors.toList());
     }
 
@@ -73,10 +81,14 @@ public class ProjectController {
     }
 
     @PostMapping("/projects/{projectId}")
-    public String acceptProject(@PathVariable String projectId) {
+    public String acceptProject(@AuthenticationPrincipal User currentUser,
+                                @PathVariable String projectId) throws ParseException {
         Project project = projectRepository.findById((long)(Integer.parseInt(projectId))).orElse(null);
         project.setStatus("Завершен");
         projectRepository.save(project);
+        String newsText = "Пользователь " + currentUser.getName() + " " + currentUser.getSurname() +
+                " (" + currentUser.getUsername() + ") закрыл проект \"" + project.getTitle() + "\"";
+        newsRepository.save(new News(newsText, dateFormat.parse(LocalDate.now().toString())));
         return "redirect:/projects";
     }
 }

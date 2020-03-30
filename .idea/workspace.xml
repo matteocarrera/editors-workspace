@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9738692-36cb-4cec-b98e-aa3aff7ae078" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/domain/News.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/NewsRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/RegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/ProjectRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/ReportRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/repositories/ReportRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/styles/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create-report.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create-report.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -184,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585476516644</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Info panel added to / page, file size limit set to 100Mb">
+      <created>1585566120276</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1585566120276</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -200,7 +209,8 @@
     <MESSAGE value="Added more designed pages" />
     <MESSAGE value="Added more designed pages and added some authorities" />
     <MESSAGE value="Fixed some bugs, set hasAuthority for pages, added features" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some bugs, set hasAuthority for pages, added features" />
+    <MESSAGE value="Info panel added to / page, file size limit set to 100Mb" />
+    <option name="LAST_COMMIT_MESSAGE" value="Info panel added to / page, file size limit set to 100Mb" />
   </component>
   <component name="WindowStateProjectService">
     <state x="564" y="133" key="#Application" timestamp="1585473689672">
@@ -222,11 +232,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="507" y="162" key="#com.intellij.ide.macro.MacrosDialog/0.0.1440.900@0.0.1440.900" timestamp="1583921815128" />
-    <state x="612" y="186" key="#com.intellij.ide.util.MemberChooser" timestamp="1585394459322">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1585568675985">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="612" y="186" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1585394459322" />
-    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585331743125" />
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585568675985" />
     <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1585560061727">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -239,36 +249,36 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="707" y="366" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1584379568745" />
-    <state x="602" y="114" key="CommitChangelistDialog2" timestamp="1585476515284">
+    <state x="602" y="114" key="CommitChangelistDialog2" timestamp="1585566119040">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="452" y="87" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1583922173396" />
     <state x="430" y="2" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1584803291534" />
-    <state x="602" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585476515284" />
-    <state width="1877" height="153" key="GridCell.Tab.0.bottom" timestamp="1585565665500">
+    <state x="602" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585566119040" />
+    <state width="1877" height="101" key="GridCell.Tab.0.bottom" timestamp="1585573331635">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1583921877497" />
     <state width="1493" height="88" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585395808980" />
-    <state width="1877" height="153" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585565665500" />
-    <state width="1877" height="153" key="GridCell.Tab.0.center" timestamp="1585565665500">
+    <state width="1877" height="101" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585573331635" />
+    <state width="1877" height="101" key="GridCell.Tab.0.center" timestamp="1585573331635">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1583921877494" />
     <state width="1493" height="88" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585395808980" />
-    <state width="1877" height="153" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585565665500" />
-    <state width="1877" height="153" key="GridCell.Tab.0.left" timestamp="1585565665500">
+    <state width="1877" height="101" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585573331635" />
+    <state width="1877" height="101" key="GridCell.Tab.0.left" timestamp="1585573331635">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1583921877493" />
     <state width="1493" height="88" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585395808980" />
-    <state width="1877" height="153" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585565665500" />
-    <state width="1877" height="153" key="GridCell.Tab.0.right" timestamp="1585565665500">
+    <state width="1877" height="101" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585573331635" />
+    <state width="1877" height="101" key="GridCell.Tab.0.right" timestamp="1585573331635">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1398" height="303" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1583921877495" />
     <state width="1493" height="88" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585395808980" />
-    <state width="1877" height="153" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585565665500" />
+    <state width="1877" height="101" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585573331635" />
     <state width="1671" height="252" key="GridCell.Tab.1.bottom" timestamp="1584079179041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -289,12 +299,12 @@
     </state>
     <state width="1398" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1583921877077" />
     <state width="1671" height="252" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584079179041" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1585476518081">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1585566123398">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="218" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1583922178457" />
     <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1584803279292" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585476518081" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585566123398" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1584803190945">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -308,6 +318,10 @@
     </state>
     <state x="519" y="246" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1584684309007" />
     <state x="649" y="311" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585473673083" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1585572983718">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585572983718" />
     <state x="814" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1584117522338">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

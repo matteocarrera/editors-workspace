@@ -21,10 +21,8 @@ import java.util.List;
 @Controller
 @PreAuthorize("hasAuthority('Администратор')")
 public class UserController {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private RoleRepository roleRepository;
+    @Autowired private UserRepository userRepository;
+    @Autowired private RoleRepository roleRepository;
 
     @GetMapping("/users")
     public String userList(@AuthenticationPrincipal User currentUser, Model model) {
@@ -57,7 +55,7 @@ public class UserController {
             user.setName(name);
             user.setSurname(surname);
             user.setPassword(password);
-            user.setRole(roleRepository.findById((long)(Integer.parseInt(role))).orElse(roleRepository.findAll().get(0)));
+            user.setRole(roleRepository.findById((long)(Integer.parseInt(role))).orElse(null));
             userRepository.save(user);
         }
         return "redirect:/users";

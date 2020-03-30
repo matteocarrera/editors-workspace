@@ -59,6 +59,11 @@ background: rgba(254, 209, 60, 0.55)
     transition: none;
 }
 
+.card-body {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
 a:hover {
 	text-decoration: none;
 }

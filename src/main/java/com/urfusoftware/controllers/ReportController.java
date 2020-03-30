@@ -1,18 +1,19 @@
 package com.urfusoftware.controllers;
 
+import com.urfusoftware.domain.News;
 import com.urfusoftware.domain.Project;
 import com.urfusoftware.domain.Report;
 import com.urfusoftware.domain.User;
-import com.urfusoftware.repositories.ProjectRepository;
-import com.urfusoftware.repositories.ReportRepository;
-import com.urfusoftware.repositories.RoleRepository;
-import com.urfusoftware.repositories.UserRepository;
+import com.urfusoftware.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -24,20 +25,21 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Controller
 public class ReportController {
-    @Autowired
-    private ReportRepository reportRepository;
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private ProjectRepository projectRepository;
-    @Autowired
-    private RoleRepository roleRepository;
+    @Autowired private ReportRepository reportRepository;
+    @Autowired private UserRepository userRepository;
+    @Autowired private ProjectRepository projectRepository;
+    @Autowired private RoleRepository roleRepository;
+    @Autowired private NewsRepository newsRepository;
 
     @Value("${upload.path}")
     private String uploadPath;
@@ -65,6 +67,8 @@ public class ReportController {
         Report report = new Report(title, project, dateFormat.parse(reportDate), Integer.parseInt(timeSpent),
                 setLink(reportFile), setLink(resultFile), comments, false, user);
         reportRepository.save(report);
+        String newsText = "Пользователь " + user.getName() + " " + user.getSurname() + " (" + user.getUsername() + ") добавил(а) новый отчет";
+        newsRepository.save(new News(newsText, dateFormat.parse(LocalDate.now().toString())));
         return "redirect:/";
     }
 
@@ -112,10 +116,15 @@ public class ReportController {
     }
 
     @PostMapping("/reports/{reportId}")
-    private String acceptReport(@PathVariable String reportId) {
+    private String acceptReport(@AuthenticationPrincipal User currentUser, @PathVariable String reportId) throws ParseException {
         Report report = reportRepository.findById((long)(Integer.parseInt(reportId))).orElse(null);
         report.setAccepted(true);
         reportRepository.save(report);
+        User user = report.getUser();
+        String newsText = "Пользователь " + currentUser.getName() + " " + currentUser.getSurname() +
+                " (" + currentUser.getUsername() + ") принял(а) отчет пользователя " + user.getName() +
+                " " + user.getSurname() + " (" + user.getUsername() + ")";
+        newsRepository.save(new News(newsText, dateFormat.parse(LocalDate.now().toString())));
         return "redirect:/reports";
     }
 

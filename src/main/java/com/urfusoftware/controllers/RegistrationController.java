@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class RegistrationController {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private RoleRepository roleRepository;
+    @Autowired private UserRepository userRepository;
+    @Autowired private RoleRepository roleRepository;
 
     @GetMapping("/registration")
     public String registration() {
