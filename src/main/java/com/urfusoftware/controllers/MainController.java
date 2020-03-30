@@ -29,7 +29,6 @@ public class MainController {
         model.addAttribute("isAuthorized", !userRole.equals("Неавторизованный"));
         model.addAttribute("isAdmin", userRole.equals("Администратор"));
         model.addAttribute("isManager", userRole.equals("Администратор") || userRole.equals("Менеджер"));
-        model.addAttribute("isWorker", !userRole.equals("Неавторизованный"));
 
 
         model.addAttribute("countOfDoneProjects", projectRepository.findAllByStatus("Завершен").size());

@@ -191,7 +191,7 @@
                 </div>
             </div>
         {{/isManager}}
-        {{#isWorker}}
+        {{#isAuthorized}}
             <div class="col-xl-12 col-md-12 mb-4">
                 <div class="card card-info shadow-sm">
                     <div class="card-header py-3">
@@ -218,7 +218,7 @@
                     </div>
                 </div>
             </div>
-        {{/isWorker}}
+        {{/isAuthorized}}
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

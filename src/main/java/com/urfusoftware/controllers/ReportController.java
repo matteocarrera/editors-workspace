@@ -79,11 +79,11 @@ public class ReportController {
         if (userRole.equals("Администратор") || userRole.equals("Менеджер")) {
             model.addAttribute("checkForWatchingPermission", true);
             model.addAttribute("checkForAcceptingPermission", true);
-            model.addAttribute("users", userRepository.findAll());
+            model.addAttribute("users", getAllUsers());
         } else if (userRole.equals("Старший переводчик") || userRole.equals("Старший редактор")) {
             model.addAttribute("checkForWatchingPermission", true);
             String juniorRole = userRole.substring(8, 9).toUpperCase() + userRole.substring(9);
-            model.addAttribute("users", getUsers(userRole, juniorRole));
+            model.addAttribute("users", getMergedUsers(userRole, juniorRole));
         } else {
             model.addAttribute("user", currentUser);
             List<Report> userReports = getUserReports(currentUser);
@@ -160,9 +160,22 @@ public class ReportController {
         return userReports;
     }
 
-    private List<User> getUsers(String firstRole, String secondRole) {
+    private List<User> getMergedUsers(String firstRole, String secondRole) {
         return Stream.concat(userRepository.findByRole(roleRepository.findByName(firstRole)).stream(),
                 userRepository.findByRole(roleRepository.findByName(secondRole)).stream())
                 .collect(Collectors.toList());
+    }
+
+    private List<User> getAllUsers() {
+        List<User> updatedUsers = new ArrayList<>();
+        for (User user : userRepository.findAll()) {
+            boolean flag = false;
+            for (Report report : reportRepository.findAllByAccepted(false)) {
+                if (report.getUser().equals(user)) flag = true;
+            }
+            user.setNotChecked(flag);
+            updatedUsers.add(user);
+        }
+        return updatedUsers;
     }
 }

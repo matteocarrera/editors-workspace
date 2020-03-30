@@ -40,7 +40,7 @@
             <select name="selectedUser" required>
                 <option value="" disabled selected>Выберите пользователя</option>
                 {{#users}}
-                    <option value="{{id}}">{{name}} {{surname}}</option>
+                    <option value="{{id}}">{{name}} {{surname}} {{#notChecked}}🔴{{/notChecked}}</option>
                 {{/users}}
             </select>
             <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>

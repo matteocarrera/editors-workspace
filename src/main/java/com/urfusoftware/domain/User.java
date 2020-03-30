@@ -22,6 +22,9 @@ public class User implements UserDetails {
     private String password;
     private boolean active;
 
+    @Transient
+    private boolean notChecked;
+
     @ManyToOne
     @JoinColumn(name = "roles_id", nullable = false)
     private Role role;
@@ -75,6 +78,14 @@ public class User implements UserDetails {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public boolean isNotChecked() {
+        return notChecked;
+    }
+
+    public void setNotChecked(boolean notChecked) {
+        this.notChecked = notChecked;
     }
 
     public Role getRole() {
