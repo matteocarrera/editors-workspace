@@ -101,9 +101,7 @@ public class ReportController {
 
     @GetMapping("/reports/{fileName}")
     public void getFile( HttpServletResponse response,
-                         @PathVariable("fileName") String fileName,
-                         @RequestHeader String referer) throws IOException {
-        if(referer != null && !referer.isEmpty()) { }
+                         @PathVariable("fileName") String fileName) throws IOException {
         Path filePath = Paths.get(uploadPath, fileName);
         if (Files.exists(filePath))
         {

@@ -52,6 +52,13 @@ background: rgba(254, 209, 60, 0.55)
     transition: 0.6s;
 }
 
+.card-info,
+.card-info:hover {
+    color: #000;
+    background: #fff;
+    transition: none;
+}
+
 a:hover {
 	text-decoration: none;
 }

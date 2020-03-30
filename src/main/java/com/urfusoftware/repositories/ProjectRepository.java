@@ -10,4 +10,5 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     List<Project> findByTranslator(User user);
     List<Project> findByEditor(User user);
     List<Project> findAllByOrderByIdAsc();
+    List<Project> findAllByStatus(String status);
 }

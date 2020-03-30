@@ -41,8 +41,8 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">Добавить<br>отчет
-                                    </div>
+                                    <h6 class="text-xs font-weight-bold text-uppercase mb-1">Добавить<br>отчет
+                                    </h6>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fa fa-plus-square fa-2x"></i>
@@ -59,8 +59,8 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">Список<br>отчетов
-                                    </div>
+                                    <h6 class="text-xs font-weight-bold text-uppercase mb-1">Список<br>отчетов
+                                    </h6>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fa fa-copy fa-2x"></i>
@@ -79,8 +79,8 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">Список<br>аккаунтов
-                                    </div>
+                                    <h6 class="text-xs font-weight-bold text-uppercase mb-1">Список<br>аккаунтов
+                                    </h6>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fa fa-users fa-2x"></i>
@@ -97,8 +97,8 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">Список<br>ролей
-                                    </div>
+                                    <h6 class="text-xs font-weight-bold text-uppercase mb-1">Список<br>ролей
+                                    </h6>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-tags fa-2x"></i>
@@ -117,8 +117,8 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">Добавить<br>проект
-                                    </div>
+                                    <h6 class="text-xs font-weight-bold text-uppercase mb-1">Добавить<br>проект
+                                    </h6>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fa fa-folder-plus fa-2x"></i>
@@ -135,8 +135,8 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">Список<br>проектов
-                                    </div>
+                                    <h6 class="text-xs font-weight-bold text-uppercase mb-1">Список<br>проектов
+                                    </h6>
                                 </div>
                                 <div class="col-auto">
                                     <i class="far fa-list-alt fa-2x"></i>
@@ -146,6 +146,50 @@
                     </div>
                 </a>
             </div>
+
+        <div class="col-xl-12 col-md-12 mb-4">
+            <div class="card card-info shadow-sm">
+                <div class="card-header py-3">
+                    <h6 class="m-0 text-xs font-weight-bold text-uppercase">Информация по проектам</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 py-2">
+                            <div class="col px-0">
+                                <h2>{{countOfDoneProjects}}</h2>
+                            </div>
+                            <div class="col px-0">
+                                Проектов выполнено
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 py-2">
+                            <div class="col px-0">
+                                <h2>{{countOfDoneReports}}</h2>
+                            </div>
+                            <div class="col px-0">
+                                Отчетов сдано
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 py-2">
+                            <div class="col px-0">
+                                <h2>{{countOfUndoneReports}}</h2>
+                            </div>
+                            <div class="col px-0">
+                                Отчетов на проверке
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 py-2">
+                            <div class="col px-0">
+                                <h2>{{averageMins}}</h2>
+                            </div>
+                            <div class="col px-0">
+                                Среднее выполение работы в минутах
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         {{/isManager}}
     </div>
 </div>

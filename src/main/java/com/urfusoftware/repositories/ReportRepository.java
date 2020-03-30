@@ -8,4 +8,5 @@ import java.util.List;
 public interface ReportRepository extends JpaRepository<Report, Long> {
 
     List<Report> findAllByOrderByIdAsc();
+    List<Report> findAllByAccepted(Boolean accepted);
 }
