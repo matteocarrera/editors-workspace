@@ -50,9 +50,9 @@ public class ReportController {
     public String reports(@AuthenticationPrincipal User currentUser, Model model) {
         model.addAttribute("user", currentUser);
         if (currentUser.getRole().getName().toLowerCase().contains("переводчик"))
-            model.addAttribute("project", projectRepository.findByTranslator(currentUser));
+            model.addAttribute("project", projectRepository.findByTranslatorAndStatus(currentUser, "В работе"));
         else
-            model.addAttribute("project", projectRepository.findByEditor(currentUser));
+            model.addAttribute("project", projectRepository.findByEditorAndStatus(currentUser, "В работе"));
         model.addAttribute("tomorrow", dateFormat.format(Calendar.getInstance().getTime()));
         return "create-report";
     }

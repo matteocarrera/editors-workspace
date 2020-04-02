@@ -65,13 +65,13 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="reportLink">Файл отчета (не более 100Мб):</label><br>
-                <input type="file" name="reportLink" id="reportLink" required>
+                <input type="file" name="reportLink" id="i_file" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="resultLink">Итоговый файл (не более 100Мб):</label><br>
-                <input type="file" name="resultLink" id="resultLink" required>
+                <input type="file" name="resultLink" id="i_file" required>
             </div>
         </div>
         <div class="form-row">
@@ -83,7 +83,7 @@
         <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         <div class="form-row mt-4">
             <div class="form-group col-md-6">
-                <button class="submit" type="submit">Добавить отчет</button>
+                <button class="submit" type="submit" id="i_submit">Добавить отчет</button>
             </div>
         </div>
     </form>

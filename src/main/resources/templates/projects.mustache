@@ -33,39 +33,44 @@
     <div class="mt-4 mb-4">
         <h3>Таблица проектов</h3>
     </div>
-        <div class="table-responsive">
-            <table class="table mt-4">
-                <thead>
+    {{#error}}
+        <div style="color: red">
+            {{error}}
+        </div>
+    {{/error}}
+    <div class="table-responsive">
+        <table class="table mt-4">
+            <thead>
+            <tr>
+                <th scope="col">Название проекта</th>
+                <th scope="col">Менеджер</th>
+                <th scope="col">Переводчик</th>
+                <th scope="col">Редактор</th>
+                <th scope="col">Статус</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#projects}}
                 <tr>
-                    <th scope="col">Название проекта</th>
-                    <th scope="col">Менеджер</th>
-                    <th scope="col">Переводчик</th>
-                    <th scope="col">Редактор</th>
-                    <th scope="col">Статус</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                {{#projects}}
-                    <tr>
-                        <td>{{title}}</td>
-                        <td>{{manager.name}} {{manager.surname}}</td>
-                        <td>{{translator.name}} {{translator.surname}}</td>
-                        <td>{{editor.name}} {{editor.surname}}</td>
-                        <td>{{status}}</td>
-                        {{#opened}}
+                    <td>{{title}}</td>
+                    <td>{{manager.name}} {{manager.surname}}</td>
+                    <td>{{translator.name}} {{translator.surname}}</td>
+                    <td>{{editor.name}} {{editor.surname}}</td>
+                    <td>{{status}}</td>
+                    {{#opened}}
                         <td>
                             <form action="/projects/{{id}}" method="POST">
                                 <input type="submit" value="Закрыть проект">
                                 <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
                             </form>
                         </td>
-                        {{/opened}}
-                    </tr>
-                {{/projects}}
-                </tbody>
-            </table>
-        </div>
+                    {{/opened}}
+                </tr>
+            {{/projects}}
+            </tbody>
+        </table>
+    </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
