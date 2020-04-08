@@ -103,4 +103,8 @@ public class ReportService {
         }
         return userReports;
     }
+
+    public List<Report> findByProject(Project project) {
+        return reportRepository.findAllByProject(project);
+    }
 }

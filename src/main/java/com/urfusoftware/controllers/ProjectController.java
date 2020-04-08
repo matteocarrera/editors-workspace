@@ -72,7 +72,9 @@ public class ProjectController {
     public String acceptProject(@AuthenticationPrincipal User currentUser,
                                 @PathVariable String projectId, RedirectAttributes attributes) throws ParseException {
         Project project = projectService.findById(Integer.parseInt(projectId));
-        if (reportService.findAllByProjectAndAcceptedFalse(project).size() == 0) {
+        if (reportService.findByProject(project).size() == 0)
+            attributes.addFlashAttribute("error", "В проекте нет ни одного отчета!");
+        else if (reportService.findAllByProjectAndAcceptedFalse(project).size() == 0) {
             projectService.closeProject(project);
             String newsText = "Пользователь " + currentUser.getName() + " " + currentUser.getSurname() +
                     " (" + currentUser.getUsername() + ") закрыл(а) проект \"" + project.getTitle() + "\"";
