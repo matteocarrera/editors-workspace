@@ -73,22 +73,8 @@
             <div class="form-group col-md-3 text-center">
                 <button class="submit" type="submit">Сохранить</button>
             </div>
-            {{#allowDelete}}
-                <div class="form-group col-md-3 text-right">
-                    <a class="delete" href="/users/{{user.id}}/delete">Удалить пользователя</a>
-                </div>
-            {{/allowDelete}}
         </div>
     </form>
-    {{#message}}
-        <strong style="color: red">{{message}}</strong>
-    {{/message}}
-    {{#deleteConfirmation}}
-        <form action="/users/{{user.id}}/delete" method="POST">
-            Вы действительно хотите удалить пользователя? <input type="submit" value="Да, удалить"/>
-            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-        </form>
-    {{/deleteConfirmation}}
 </div>
 </body>
 

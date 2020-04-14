@@ -44,20 +44,4 @@ public class UserController {
         userService.saveUser(user, username, name, surname, role);
         return "redirect:/users";
     }
-
-    @GetMapping(value = {"/users/{user}/delete"})
-    public String showDeleteUser(@AuthenticationPrincipal User currentUser,
-                                 @PathVariable User user, Model model) {
-        model.addAttribute("currentUser", currentUser);
-        model.addAttribute("user", user);
-        model.addAttribute("role", roleService.setCurrentRole(user));
-        model.addAttribute("deleteConfirmation", true);
-        return "user-edit";
-    }
-
-    @PostMapping(value = {"/users/{user}/delete"})
-    public String deleteUser(@PathVariable User user) {
-        userService.delete(user);
-        return "redirect:/users";
-    }
 }

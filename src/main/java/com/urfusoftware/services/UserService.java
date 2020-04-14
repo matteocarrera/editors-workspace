@@ -55,10 +55,6 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
     }
 
-    public void delete(User user) {
-        userRepository.delete(user);
-    }
-
     public List<User> findByRole(String role) {
         return userRepository.findByRole(roleService.findByName(role));
     }
