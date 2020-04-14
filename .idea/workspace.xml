@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9738692-36cb-4cec-b98e-aa3aff7ae078" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/urfusoftware/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/urfusoftware/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/roles.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/roles.mustache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user-edit.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user-edit.mustache" afterDir="false" />
-    </list>
+    <list default="true" id="d9738692-36cb-4cec-b98e-aa3aff7ae078" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -350,11 +344,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586847672481" />
-    <state x="649" y="311" key="git4idea.merge.GitPullDialog" timestamp="1586275765913">
+    <state x="649" y="311" key="git4idea.merge.GitPullDialog" timestamp="1586852562775">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="519" y="246" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1584684309007" />
-    <state x="649" y="311" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586275765913" />
+    <state x="649" y="311" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586852562775" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1585572983718">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
