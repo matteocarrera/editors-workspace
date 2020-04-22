@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -28,10 +29,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(final HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/registration", "/static/**").permitAll() //.antMatchers("/", "/registration").permitAll()
+                    .antMatchers("/registration", "/static/**").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
@@ -39,7 +40,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll()
                 .and()
                     .logout()
-                    .permitAll();
+                    .permitAll()
+                .and()
+                    .exceptionHandling().accessDeniedPage("/error");
     }
 
     @Override
@@ -48,4 +51,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder);
 
     }
+
 }

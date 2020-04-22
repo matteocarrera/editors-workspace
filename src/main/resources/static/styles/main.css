@@ -97,3 +97,7 @@ input:-webkit-autofill {
   -webkit-animation-name: autofill;
   -webkit-animation-fill-mode: both;
 }
+
+.error-page {
+    background-color: #fff;
+}
