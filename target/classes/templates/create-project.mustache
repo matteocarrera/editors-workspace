@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление проекта</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/fb3dc001db.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/styles/main.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse shadow-sm mb-3">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="/static/burone.png" class="img"></a>
+        </div>
+        <ul class="nav navbar">
+            <li class="mr-4">
+                <i class="fa fa-user" aria-hidden="true"></i> {{user.name}} {{user.surname}}
+            </li>
+            <li>
+                <form action="/logout" method="post">
+                    <button class="btn p-0" type="submit"><i class="fa fa-sign-out" aria-hidden="true"></i> Выход
+                    </button>
+                    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="mt-4 mb-4">
+        <h3>Добавление проекта</h3>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="title">Название:</label>
+                <input class="form-control" type="text" name="title" id="title" placeholder="Введите название" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="manager">Назначить менеджера на проект:</label>
+                <select class="form-control custom-select" name="manager" required>
+                    {{#manager}}
+                        <option value="{{id}}">{{name}} {{surname}}</option>
+                    {{/manager}}
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="translator">Назначить переводчика на проект:</label>
+                <select class="form-control custom-select" name="translator" required>
+                    {{#translator}}
+                        <option value="{{id}}">{{name}} {{surname}}</option>
+                    {{/translator}}
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="editor">Назначить редактора на проект:</label>
+                <select class="form-control custom-select" name="editor" required>
+                    {{#editor}}
+                        <option value="{{id}}">{{name}} {{surname}}</option>
+                    {{/editor}}
+                </select>
+            </div>
+        </div>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <div class="form-row mt-4">
+            <div class="form-group col-md-6">
+                <button class="submit" type="submit">Добавить проект</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

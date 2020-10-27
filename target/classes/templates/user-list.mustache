@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/fb3dc001db.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/styles/main.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse shadow-sm mb-3">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="/static/burone.png" class="img"></a>
+        </div>
+        <ul class="nav navbar">
+            <li class="mr-4">
+                <i class="fa fa-user" aria-hidden="true"></i> {{user.name}} {{user.surname}}
+            </li>
+            <li>
+                <form action="/logout" method="post">
+                    <button class="btn p-0" type="submit"><i class="fa fa-sign-out" aria-hidden="true"></i> Выход
+                    </button>
+                    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="mt-4 mb-4">
+        <h3>Список пользователей</h3>
+    </div>
+    <div class="table-responsive">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Логин</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">Текущая роль</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#users}}
+            <tr>
+                <td>{{username}}</td>
+                <td>{{name}}</td>
+                <td>{{surname}}</td>
+                <td>{{role.name}}</td>
+                <td><a href="/users/{{id}}">Редактировать</a></td>
+            </tr>
+        {{/users}}
+        </tbody>
+    </table>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>

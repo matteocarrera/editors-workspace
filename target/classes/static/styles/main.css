@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+	background: #f1f1f1;
+}
+
+.navbar,
+.navbar-inverse {
+    padding-left: 0px;
+    padding-right: 0px;
+    background: #fff;
+}
+
+tr:hover td {
+background: rgba(254, 209, 60, 0.15)
+}
+
+tr th {
+background: rgba(254, 209, 60, 0.55)
+}
+
+.delete {
+	color: black;
+}
+
+.delete:hover {
+	color: red;
+	text-decoration: underline;
+}
+
+.img {
+    width: 50%;
+    height: 50%;
+}
+
+.card {
+    color: #FED13C;
+    transition: 0.6s;
+}
+
+.card .col {
+    color: #000;
+}
+
+.card:hover {
+    color: #000;
+    background: #FED13C;
+    transition: 0.6s;
+}
+
+.card-info,
+.card-info:hover {
+    color: #000;
+    background: #fff;
+    transition: none;
+}
+
+.card-body {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.btn {
+	border: none;
+	background: transparent;
+}
+
+.submit {
+    width: 300px;
+	background: #FED13C;
+	border-radius: 50px;
+	border: 1px solid black;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.submit:hover {
+    background: #fec13c;
+}
+
+@-webkit-keyframes autofill {
+  to {
+    color: inherit;
+    background: #FFF;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
+.error-page {
+    background-color: #fff;
+}
