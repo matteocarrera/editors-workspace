@@ -10,7 +10,9 @@ import java.util.List;
 
 @Service
 public class ProjectService {
-    @Autowired private ProjectRepository projectRepository;
+
+    @Autowired
+    private ProjectRepository projectRepository;
 
     public List<Project> findAllByStatus(String status) {
         return projectRepository.findAllByStatus(status);

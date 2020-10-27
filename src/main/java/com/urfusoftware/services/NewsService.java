@@ -11,7 +11,9 @@ import java.util.List;
 
 @Service
 public class NewsService {
-    @Autowired private NewsRepository newsRepository;
+
+    @Autowired
+    private NewsRepository newsRepository;
 
     public void save(News news) {
         newsRepository.save(news);

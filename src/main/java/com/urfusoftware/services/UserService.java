@@ -18,10 +18,15 @@ import java.util.stream.Stream;
 
 @Service
 public class UserService implements UserDetailsService {
-    @Autowired private UserRepository userRepository;
-    @Autowired private ReportService reportService;
-    @Autowired private RoleService roleService;
-    @Autowired private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private ReportService reportService;
+    @Autowired
+    private RoleService roleService;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {

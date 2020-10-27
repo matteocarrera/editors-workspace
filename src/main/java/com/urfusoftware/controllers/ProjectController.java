@@ -26,10 +26,15 @@ import java.util.List;
 @Controller
 @PreAuthorize("hasAnyAuthority('Администратор', 'Менеджер')")
 public class ProjectController {
-    @Autowired private UserService userService;
-    @Autowired private ProjectService projectService;
-    @Autowired private NewsService newsService;
-    @Autowired private ReportService reportService;
+
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private ProjectService projectService;
+    @Autowired
+    private NewsService newsService;
+    @Autowired
+    private ReportService reportService;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     @GetMapping("/project")
@@ -70,14 +75,22 @@ public class ProjectController {
 
     @PostMapping("/projects/{projectId}")
     public String acceptProject(@AuthenticationPrincipal User currentUser,
-                                @PathVariable String projectId, RedirectAttributes attributes) throws ParseException {
+                                @PathVariable String projectId,
+                                RedirectAttributes attributes) throws ParseException {
         Project project = projectService.findById(Integer.parseInt(projectId));
         if (reportService.findByProject(project).size() == 0)
             attributes.addFlashAttribute("error", "В проекте нет ни одного отчета!");
         else if (reportService.findAllByProjectAndAcceptedFalse(project).size() == 0) {
             projectService.closeProject(project);
-            String newsText = "Пользователь " + currentUser.getName() + " " + currentUser.getSurname() +
-                    " (" + currentUser.getUsername() + ") закрыл(а) проект \"" + project.getTitle() + "\"";
+            String newsText = "Пользователь " +
+                    currentUser.getName() +
+                    " " +
+                    currentUser.getSurname() +
+                    " (" +
+                    currentUser.getUsername() +
+                    ") закрыл(а) проект \"" +
+                    project.getTitle() +
+                    "\"";
             newsService.save(new News(newsText, dateFormat.parse(LocalDate.now().toString())));
         } else attributes.addFlashAttribute("error", "В проекте остались непринятые отчеты!");
 

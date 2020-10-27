@@ -29,10 +29,15 @@ import java.util.List;
 
 @Controller
 public class ReportController {
-    @Autowired private UserService userService;
-    @Autowired private ReportService reportService;
-    @Autowired private ProjectRepository projectRepository;
-    @Autowired private NewsService newsService;
+
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private ReportService reportService;
+    @Autowired
+    private ProjectRepository projectRepository;
+    @Autowired
+    private NewsService newsService;
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -48,10 +53,14 @@ public class ReportController {
     }
 
     @PostMapping("/reports/add")
-    public String reportSave(@AuthenticationPrincipal User user, @RequestParam String title,
-                             @RequestParam Project project, @RequestParam String timeSpent,
-                             @RequestParam String reportDate, @RequestParam("reportLink") MultipartFile reportFile,
-                             @RequestParam("resultLink") MultipartFile resultFile, @RequestParam String comments)
+    public String reportSave(@AuthenticationPrincipal User user,
+                             @RequestParam String title,
+                             @RequestParam Project project,
+                             @RequestParam String timeSpent,
+                             @RequestParam String reportDate,
+                             @RequestParam("reportLink") MultipartFile reportFile,
+                             @RequestParam("resultLink") MultipartFile resultFile,
+                             @RequestParam String comments)
             throws ParseException, IOException {
         reportService.createReport(title, project, reportDate, Integer.parseInt(timeSpent), reportFile, resultFile,
                 comments, false, user);
@@ -102,9 +111,19 @@ public class ReportController {
         Report report = reportService.findById((Integer.parseInt(reportId)));
         reportService.acceptReport(report);
         User user = report.getUser();
-        String newsText = "Пользователь " + currentUser.getName() + " " + currentUser.getSurname() +
-                " (" + currentUser.getUsername() + ") принял(а) отчет пользователя " + user.getName() +
-                " " + user.getSurname() + " (" + user.getUsername() + ")";
+        String newsText = "Пользователь " +
+                currentUser.getName() +
+                " " +
+                currentUser.getSurname() +
+                " (" +
+                currentUser.getUsername() +
+                ") принял(а) отчет пользователя " +
+                user.getName() +
+                " " +
+                user.getSurname() +
+                " (" +
+                user.getUsername() +
+                ")";
         newsService.save(new News(newsText, dateFormat.parse(LocalDate.now().toString())));
         return "redirect:/reports";
     }

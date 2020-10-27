@@ -24,6 +24,7 @@ import java.util.UUID;
 
 @Service
 public class ReportService {
+
     @Autowired
     private ReportRepository reportRepository;
 
@@ -93,7 +94,7 @@ public class ReportService {
 
         for (Report report : reportRepository.findAllByOrderByIdAsc()) {
             if (report.getUser().getId().equals(user.getId())) {
-                String reportDate = report.getDate().toString().substring(0, 10);
+                String reportDate = report.getReportDate().toString().substring(0, 10);
                 String dateInRusFormat = reportDate.substring(8, 10) +
                         "." + reportDate.substring(5, 7) +
                         "." + reportDate.substring(0, 4);

@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @PreAuthorize("hasAuthority('Администратор')")
 public class UserController {
-    @Autowired private UserService userService;
-    @Autowired private RoleService roleService;
+
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private RoleService roleService;
 
     @GetMapping("/users")
     public String userList(@AuthenticationPrincipal User currentUser, Model model) {
@@ -38,8 +41,10 @@ public class UserController {
     }
 
     @PostMapping("/users/{user}")
-    public String userSave(@RequestParam String username, @RequestParam String surname,
-                           @RequestParam String name, @RequestParam("userId") User user,
+    public String userSave(@RequestParam String username,
+                           @RequestParam String surname,
+                           @RequestParam String name,
+                           @RequestParam("userId") User user,
                            @RequestParam String role) {
         userService.saveUser(user, username, name, surname, role);
         return "redirect:/users";

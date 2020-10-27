@@ -14,9 +14,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-    @Autowired private ProjectService projectService;
-    @Autowired private ReportService reportService;
-    @Autowired private NewsService newsService;
+
+    @Autowired
+    private ProjectService projectService;
+    @Autowired
+    private ReportService reportService;
+    @Autowired
+    private NewsService newsService;
 
     @GetMapping("/")
     public String main(@AuthenticationPrincipal User currentUser, Model model) {
